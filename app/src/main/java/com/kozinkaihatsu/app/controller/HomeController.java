@@ -12,4 +12,3 @@ public class HomeController {
         return "index";  // templates/index.html を返す
     }
 }
-``

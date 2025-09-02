@@ -1,0 +1,17 @@
+{
+    "name": "openapi-dev-con",
+    "dockerComposeFile": ["./docker-compose.yml"],
+    "service": "java",
+    "workspaceFolder": "/kozinkaihatsu",
+    "customizations": {
+      "vscode": {
+        "java.jdk.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
+        "extensions": [
+          "vscjava.vscode-java-pack",
+          "vscjava.vscode-lombok",
+          "vscjava.vscode-gradle",
+          "arjun.swagger-viewer"
+        ]
+      }
+    }
+  }

@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  java:
+    container_name: kozinkaihatsu-java
+    build:
+      context: ./java
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    volumes:
+      - "..:/kozinkaihatsu:cached"
+      - type: volume
+        source: kozinkaihatsu-gradle-cache
+        target: /root/.gradle
+    depends_on:
+      - postgres
+    networks:
+      - kozinkaihatsu-network
+    tty: true
+  postgres:
+    container_name: kozinkaihatsu-postgres
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: kozinkaihatsu_db
+    ports:
+      - "5433:5432"
+    networks:
+      - kozinkaihatsu-network
+    volumes:
+      - type: volume
+        source: kozinkaihatsu-db-volume
+        target: /var/lib/postgresql/data
+
+      - type: bind
+        source: ./postgres/db-init
+        target: /docker-entrypoint-initdb.d
+
+
+
+volumes:
+  kozinkaihatsu-db-volume:
+    driver: local
+  kozinkaihatsu-gradle-cache:
+    driver: local
+
+networks:
+  kozinkaihatsu-network:

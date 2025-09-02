@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://kozinkaihatsu-postgres:5432/kozinkaihatsu_db
+    username: root
+    password: root
+sql:
+  init:
+    mode: always             # SQL初期化を常に実行
+    continue-on-error: false # エラーがあれば起動を中止する
+    schema-locations:
+        - classpath:schema/01_flower.sql
+        - classpath:schema/02_flower_name.sql
+        - classpath:schema/03_flower_color.sql
+
+logging:
+  level:
+    org.springframework.jdbc.datasource.init.ScriptUtils: DEBUG # SQL読み込みの詳細ログ
+
+mybatis:
+  config-location: classpath:mybatis-config.xml

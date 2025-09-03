@@ -1,4 +1,4 @@
-INSERT INTO kozinakihatsu.flower (id, flower_name, color_name) VALUES
+INSERT INTO kozinkaihatsu.flower (id, flower_name, color_name) VALUES
 ('0000000001', 'バラ', '赤'),
 ('0000000002', 'チューリップ', '黄'),
 ('0000000003', 'ひまわり', '黄'),

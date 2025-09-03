@@ -1,10 +1,7 @@
--- スキーマ作成
-CREATE SCHEMA IF NOT EXISTS kozinkaihatsu;
-
 -- 花マスタ
 DROP TABLE IF EXISTS kozinkaihatsu.flower;
 CREATE TABLE kozinkaihatsu.flower (
-    id           character varying(10) NOT NULL,
+    id           CHAR(10)              NOT NULL,
     flower_name  text                  NOT NULL,
     color_name   character varying(20),
     PRIMARY KEY (id)

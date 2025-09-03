@@ -1,8 +1,8 @@
 -- 色マスタ
 DROP TABLE IF EXISTS kozinkaihatsu.flower_color;
 CREATE TABLE kozinkaihatsu.flower_color (
-    color_id   character varying(2) NOT NULL,
-    color_name text                 NOT NULL,
+    color_id   integer NOT NULL,
+    color_name text    NOT NULL,
     PRIMARY KEY (color_id)
 );
 

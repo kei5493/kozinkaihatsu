@@ -14,6 +14,8 @@ spring:
           - classpath:schema/01_flower.sql
           - classpath:schema/02_flower_name.sql
           - classpath:schema/03_flower_color.sql
+          - classpath:schema/00_flower_list.sql
+
       data-locations:
           - classpath:data/01_flower.sql
           - classpath:data/02_flower_name.sql

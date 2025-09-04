@@ -23,6 +23,6 @@ public class HomeController {
         // 画面に渡す
         model.addAttribute("flowersList", flowersListDTOs);
 
-        return "index";
+        return "result";
     }
 }

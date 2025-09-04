@@ -1,5 +1,7 @@
 -- 花マスタ
-DROP TABLE IF EXISTS kozinkaihatsu.flower;
+DROP VIEW IF EXISTS kozinkaihatsu.flower_list;
+DROP TABLE IF EXISTS kozinkaihatsu.flower CASCADE;
+
 CREATE TABLE kozinkaihatsu.flower (
     id           integer   NOT NULL,
     flower_name_id integer NOT NULL,

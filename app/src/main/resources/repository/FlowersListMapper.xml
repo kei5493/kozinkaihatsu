@@ -5,6 +5,6 @@
 <mapper namespace="com.kozinkaihatsu.app.repository.view.FlowersListMapper">
     <select id="selectAllFlower" resultType="com.kozinkaihatsu.app.Record.FlowersListRecord">
           SELECT id, flower_name, color_name
-        FROM kozinkaihatsu.v_flower_list
+        FROM kozinkaihatsu.flower_list
     </select>
 </mapper>

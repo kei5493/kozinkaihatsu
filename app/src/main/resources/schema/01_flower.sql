@@ -16,5 +16,5 @@ COMMENT ON TABLE kozinkaihatsu.flower IS '花マスタ';
 COMMENT ON COLUMN kozinkaihatsu.flower.id IS '花ID';
 COMMENT ON COLUMN kozinkaihatsu.flower.flower_name_id IS '花の名前ID';
 COMMENT ON COLUMN kozinkaihatsu.flower.flower_name IS '花の名前';
-COMMENT ON COLUMN kozinkaihatsu.flower.color_name_id IS '色ID';
+COMMENT ON COLUMN kozinkaihatsu.flower.color_id IS '色ID';
 COMMENT ON COLUMN kozinkaihatsu.flower.color_name IS '色';

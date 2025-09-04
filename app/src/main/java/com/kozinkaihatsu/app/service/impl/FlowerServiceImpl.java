@@ -1,19 +1,36 @@
-// package com.kozinkaihatsu.app.service.impl;
+package com.kozinkaihatsu.app.service.impl;
 
-// public class FlowerServiceImpl {
-    
-// }
-// @Service
-// public classFlowerServiceImpl implementsFlowerService {
+import java.util.List;
 
-//     private final SqlSessionTemplate sqlSessionTemplate;
+import org.springframework.stereotype.Service;
 
-//     publicServiceImpl(SqlSessionTemplate sqlSessionTemplate) {
-//         this.sqlSessionTemplate = sqlSessionTemplate;
-//     }
+import com.kozinkaihatsu.app.DTO.FlowerDTO;
+import com.kozinkaihatsu.app.DTO.FlowersListDTO;
+import com.kozinkaihatsu.app.Entity.FlowersListEntity;
+import com.kozinkaihatsu.app.Record.FlowersListRecord;
+import com.kozinkaihatsu.app.helper.FlowersListConverter;
+import com.kozinkaihatsu.app.repository.view.FlowersListMapper;
+import com.kozinkaihatsu.app.service.FlowerService;
 
-//     @Override
-//     public List<Flowers> findAllFlower() {
-//         return sqlSessionTemplate.getMapper(com.kozinkaihatsu.app.repository.FlowerMapper.class).selectAll();
-//     }
-// }
+import lombok.AllArgsConstructor;
+
+
+@AllArgsConstructor
+@Service
+public class FlowerServiceImpl implements FlowerService {
+
+    private final FlowersListMapper flowersListMapper;
+    private final FlowersListConverter flowersListConverter;
+
+    @Override
+    public List<FlowersListDTO> findAllFlower() {
+        // ① DBからRecordを取得
+        List<FlowersListRecord> records = flowersListMapper.selectAllFlower();
+
+        // ② Record → Entity
+        List<FlowersListEntity> entities = flowersListConverter.toEntityList(records);
+
+        // ③ Entity → DTO
+        return flowersListConverter.toDTOList(entities);
+    }
+}

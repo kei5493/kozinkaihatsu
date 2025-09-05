@@ -12,10 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FlowerDTO {
-    private Integer id;            // 花ID
-    private Integer flowerNameId;  // 花の名前ID
-    private String flowerName;     // 花の名前
+public class FlowerSearchFormDTO {
     private Integer colorId;       // 色ID
-    private String colorName;      // 色名
+    private String colorName;  // 色名（画面戻し用）
 }

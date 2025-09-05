@@ -18,8 +18,8 @@
         <tbody>
             <tr th:each="flower : ${flowersList}">
                 <td th:text="${flower.id}"></td>
-                <td th:text="${flower.name}"></td>
-                <td th:text="${flower.color}"></td>
+                <td th:text="${flower.flowerName}"></td>
+                <td th:text="${flower.colorName}"></td>
             </tr>
         </tbody>
     </table>

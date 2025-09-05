@@ -13,7 +13,6 @@ FROM
     LEFT JOIN kozinkaihatsu.flower_color fc
         ON f.color_id = fc.color_id;
 
-
 -- ビューコメント
 COMMENT ON VIEW kozinkaihatsu.flower_list IS '花マスタ + 花名前マスタ + 色マスタ結合ビュー';
 

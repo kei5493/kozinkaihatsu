@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FlowersListRecord {
     private Integer id;
-    private String flower_name_id;
-    private String flower_name;
-    private String color_id;
-    private String color_name;
+    private String flowerNameId;
+    private String flowerName;
+    private String colorId;
+    private String colorName;
 }

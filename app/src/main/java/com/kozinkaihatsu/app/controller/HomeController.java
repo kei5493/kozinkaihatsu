@@ -18,10 +18,10 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model) {
         // 花リストDTOを取得
-        List<FlowersListDTO> flowersListDTOs = flowerService.findAllFlower();
+        List<FlowersListDTO> flowersList = flowerService.findAllFlower();
 
         // 画面に渡す
-        model.addAttribute("flowersList", flowersListDTOs);
+        model.addAttribute("flowersList", flowersList);
 
         return "result";
     }

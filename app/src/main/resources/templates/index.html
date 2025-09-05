@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base('search',~{::title},~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>重大事案管理システム｜重大事案検索</title>
+    <link rel="stylesheet" th:href="@{/kozinkaihatsu/app/src/main/resources/static/style.css}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div th:replace="~{request:: request}"></div>
+
+    <div th:replace="~{result :: result}"></div>
+
+    <!--自分でつくったjsの読込-->
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>

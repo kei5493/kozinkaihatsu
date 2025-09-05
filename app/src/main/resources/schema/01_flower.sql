@@ -1,11 +1,12 @@
--- スキーマ作成
-CREATE SCHEMA IF NOT EXISTS kozinkaihatsu;
-
 -- 花マスタ
-DROP TABLE IF EXISTS kozinkaihatsu.flower;
+DROP VIEW IF EXISTS kozinkaihatsu.flower_list;
+DROP TABLE IF EXISTS kozinkaihatsu.flower CASCADE;
+
 CREATE TABLE kozinkaihatsu.flower (
-    id           character varying(10) NOT NULL,
-    flower_name  text                  NOT NULL,
+    id           integer   NOT NULL,
+    flower_name_id integer NOT NULL,
+    flower_name  text      NOT NULL,
+    color_id   integer   NOT NULL,
     color_name   character varying(20),
     PRIMARY KEY (id)
 );
@@ -15,5 +16,7 @@ COMMENT ON TABLE kozinkaihatsu.flower IS '花マスタ';
 
 -- カラムコメント
 COMMENT ON COLUMN kozinkaihatsu.flower.id IS '花ID';
+COMMENT ON COLUMN kozinkaihatsu.flower.flower_name_id IS '花の名前ID';
 COMMENT ON COLUMN kozinkaihatsu.flower.flower_name IS '花の名前';
+COMMENT ON COLUMN kozinkaihatsu.flower.color_id IS '色ID';
 COMMENT ON COLUMN kozinkaihatsu.flower.color_name IS '色';

@@ -1,19 +1,25 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   datasource:
     url: jdbc:postgresql://kozinkaihatsu-postgres:5432/kozinkaihatsu_db
     username: root
     password: root
-sql:
-  init:
-    mode: always             # SQL初期化を常に実行
-    continue-on-error: false # エラーがあれば起動を中止する
-    schema-locations:
-        - classpath:schema/01_flower.sql
-        - classpath:schema/02_flower_name.sql
-        - classpath:schema/03_flower_color.sql
+  sql:
+    init:
+      mode: always             # SQL初期化を常に実行
+      continue-on-error: false # エラーがあれば起動を中止する
+      schema-locations:
+          - classpath:schema/01_flower.sql
+          - classpath:schema/02_flower_name.sql
+          - classpath:schema/03_flower_color.sql
+          - classpath:schema/00_flower_list.sql
+
+      data-locations:
+          - classpath:data/01_flower.sql
+          - classpath:data/02_flower_name.sql
+          - classpath:data/03_flower_color.sql
 
 logging:
   level:
@@ -21,3 +27,4 @@ logging:
 
 mybatis:
   config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:repository/**/*.xml

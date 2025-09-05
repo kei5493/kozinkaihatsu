@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout ::base('search',~{::title},~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>花検索</title>
+    <link rel="stylesheet" th:href="@{/kozinkaihatsu/app/src/main/resources/static/style.css}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div th:fragment="search">
+        <header>
+            <div class="header-top">検索</div>
+        </header>
+<div>
+    <form th:action="@{/flowers}" method="get">
+        <label for="colorSelect">色で絞り込み:</label>
+        <select id="colorSelect" name="colorId">
+            <option value="">-- 全ての色 --</option>
+            <option th:each="color : ${colors}" 
+                    th:value="${color.id}" 
+                    th:text="${color.colorName}"
+                    th:selected="${color.id == colorId}"></option>
+        </select>
+        <button type="submit">検索</button>
+    </form>
+</div>
+
+
+    </body>
+    </html>
+    

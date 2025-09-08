@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.kozinkaihatsu.app.DTO.FlowerSearchFormDTO;
 import com.kozinkaihatsu.app.DTO.FlowersListDTO;
 import com.kozinkaihatsu.app.Form.FlowerSearchForm;
 import com.kozinkaihatsu.app.Record.FlowerColorRecord;
@@ -24,20 +25,23 @@ public class FlowerController {
      * 初期表示（GETリクエスト）
      */
     @GetMapping("/")
-    public String flowerSearchGet(@ModelAttribute FlowerSearchForm flowerSearchForm, Model model) {
+    public String flowerSearchGet(Model model, @ModelAttribute FlowerSearchForm flowerSearchForm) {
 
-        // ① 検索フォーム用データ（色プルダウン）
-        List<FlowerColorRecord> colorList = flowerService.getAllFlowerColor();
-        model.addAttribute("colorList", colorList);
+        // キャッシュされた検索フォーム用データ（色・名称などの選択肢）
+        FlowerSearchFormDTO flowerSearchFormDTO = flowerService.getSearchFormDTO();
+        model.addAttribute("flowerSearchFormDTO", flowerSearchFormDTO);
 
-        // ② 検索結果（初期表示は全件）
-        List<FlowersListDTO> flowers = flowerService.findAllFlower();
-        model.addAttribute("flowers", flowers);
+        // 入力値（form）をキャッシュDTOに反映
+        flowerSearchForm.giveFlowerSearchForm(flowerSearchFormDTO);
 
-        // ③ 検索フォーム（選択保持用）
+        // 検索結果（初期表示は全件）
+        List<FlowersListDTO> flowersListDTO = flowerService.flowersListDTO(flowerSearchForm);
+        model.addAttribute("flowersListDTO", flowersListDTO);
+
+        // 検索フォーム保持用
         model.addAttribute("flowerSearchForm", flowerSearchForm);
 
-        return "index"; // ThymeleafのHTML名
+        return "index";
     }
 
     /**
@@ -46,22 +50,20 @@ public class FlowerController {
     @PostMapping("/")
     public String flowerSearchPost(@ModelAttribute FlowerSearchForm flowerSearchForm, Model model) {
 
-        // ① 検索フォーム用データ（色プルダウン）
-        List<FlowerColorRecord> colorList = flowerService.getAllFlowerColor();
-        model.addAttribute("colorList", colorList);
+        // キャッシュ済み検索フォームデータを取得
+        FlowerSearchFormDTO flowerSearchFormDTO = flowerService.getSearchFormDTO();
 
-        // ② 入力条件に応じて検索
-        List<FlowersListDTO> flowers;
-        if (flowerSearchForm.getColor() != null) {
-            flowers = flowerService.findFlowerColor(flowerSearchForm);
-        } else {
-            flowers = flowerService.findAllFlower();
-        }
-        model.addAttribute("flowers", flowers);
+        // 入力値をキャッシュDTOに反映
+        flowerSearchFormDTO = flowerService.giveSearchFormDTO(flowerSearchForm, flowerSearchFormDTO);
 
-        // ③ 検索フォーム（選択保持用）
+        // 検索結果
+        List<FlowersListDTO> flowersListDTO = flowerService.flowersListDTO(flowerSearchForm);
+        model.addAttribute("flowersListDTO", flowersListDTO);
+
+        // 検索フォーム保持用
+        model.addAttribute("flowerSearchFormDTO", flowerSearchFormDTO);
         model.addAttribute("flowerSearchForm", flowerSearchForm);
 
-        return "index"; // 検索結果を同じ画面に返す
+        return "index";
     }
 }

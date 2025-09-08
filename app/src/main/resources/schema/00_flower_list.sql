@@ -37,7 +37,7 @@ FROM
         ON fb.color_id = fcm.color_id;
 
 -- ビューコメント
-COMMENT ON VIEW kozinkaihatsu.flower_list IS '花マスタ + 花名前マスタ + 色マスタ結合ビュー (CTE版)';
+COMMENT ON VIEW kozinkaihatsu.flower_list IS '花マスタ + 花名前マスタ + 色マスタ結合ビュー';
 
 -- カラムコメント
 COMMENT ON COLUMN kozinkaihatsu.flower_list.id IS '花ID';

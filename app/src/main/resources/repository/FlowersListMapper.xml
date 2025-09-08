@@ -24,7 +24,13 @@
             <if test="form.color != null and form.color != ''">
                 AND color_id = #{form.color}
             </if>
+            <if test="form.selectFlowerName != null and form.selectFlowerName != ''">
+                AND flower_name_id = #{form.selectFlowerName}
+            </if>
         </where>
     </select>
 
 </mapper>
+
+ 
+          

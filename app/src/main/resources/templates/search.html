@@ -12,24 +12,40 @@
             <div class="header-top">検索</div>
         </header>
         <form th:action="@{/}" th:object="${flowerSearchForm}" method="post">
-    <!-- 色 -->
-    <div class="list-and-name">
-        <label th:for="*{color}">色</label>
-        <div class="pulldown-wrapper">
-            <select id="color" th:field="*{color}">
-                <option value="">選択してください</option>
-                <option th:each="color : ${colorList}" 
-                        th:value="${color.colorId}" 
-                        th:text="${color.colorName}">
-                </option>
-            </select>
-        </div>
-    </div>
-    <!-- ボタン -->
-    <div>
-        <button type="submit" id="searchBtn" class="btn-submit">検索</button>
-    </div>
-</form>
+
+            <!-- 色 -->
+            <div class="list-and-name">
+                <label th:for="*{color}">色</label>
+                <div class="pulldown-wrapper">
+                    <select id="color" th:field="*{color}">
+                        <option value="">選択してください</option>
+                        <option th:each="color : ${flowerSearchFormDTO.flowerColorRecords}"
+                                th:value="${color.colorId}"
+                                th:text="${color.colorName}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- 名称 -->
+            <div class="list-and-name">
+                <label th:for="*{selectFlowerName}">名称</label>
+                <div class="pulldown-wrapper">
+                    <select id="selectFlowerName" th:field="*{selectFlowerName}">
+                        <option value="">選択してください</option>
+                        <option th:each="flowerName : ${flowerSearchFormDTO.flowerNameRecords}"
+                                th:value="${flowerName.flowerNameId}"
+                                th:text="${flowerName.flowerName}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- 検索ボタン -->
+            <div>
+                <button type="submit" id="searchBtn">検索</button>
+            </div>
+        </form>
 </div>
 
 </body>

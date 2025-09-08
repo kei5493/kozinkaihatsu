@@ -7,10 +7,10 @@ import lombok.Data;
 
 @Data
 public class FlowerSearchForm {
-    private Integer colorId; // 色ID（検索条件）
+    private Integer color; // 色ID（検索条件）
 
 
 public void giveFlowerSearchForm(FlowerSearchFormDTO dto) {
-    this.colorId = dto.getColorId();
+    this.color = dto.getColor();
 }
 }

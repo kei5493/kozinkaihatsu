@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kozinkaihatsu.app.repository.kozinkaihatsu.FlowerColorMapper">
+<mapper namespace="com.kozinkaihatsu.app.repository.common.FlowerColorMapper">
     <select id="selectAllFlowerColor" resultType="com.kozinkaihatsu.app.Record.FlowerColorRecord">
-SELECT
-    color_id,
-    color_name
-FROM
-    kozinkaihatsu.flower_color;
+        SELECT
+            color_id AS colorId,
+            color_name AS colorName
+        FROM
+            kozinkaihatsu.flower_color;
     </select>
 </mapper>

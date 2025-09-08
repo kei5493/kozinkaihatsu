@@ -3,16 +3,28 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kozinkaihatsu.app.repository.view.FlowersListMapper">
-   <select id="selectFlowers" resultType="com.kozinkaihatsu.Record.FlowersListRecord">
-    SELECT * FROM kozinkaihatsu.flower_list
-    <where>
-        <if test="form.selectColor ! = null">
-            AND color_id = #{form.selectColor}
-        </if>
-        <!-- <if test="form.flowerName != null">
-            AND flower_name LIKE CONCAT('%', #{form.flowerName}, '%')
-        </if> -->
-    </where>
-</select>
+ <!-- 全件取得 -->
+    <select id="selectAllFlowersList"
+            resultType="com.kozinkaihatsu.app.Record.FlowersListRecord">
+        SELECT
+            *
+        FROM
+            kozinkaihatsu.flower_list
+    </select>
+
+    <!-- 条件付き検索 -->
+    <select id="selectSearchList"
+            parameterType="com.kozinkaihatsu.app.Form.FlowerSearchForm"
+            resultType="com.kozinkaihatsu.app.Record.FlowersListRecord">
+        SELECT
+            *
+        FROM
+            kozinkaihatsu.flower_list
+        <where>
+            <if test="form.color != null and form.color != ''">
+                AND color_id = #{form.color}
+            </if>
+        </where>
+    </select>
 
 </mapper>

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+<div th:fragment="result">
     <table id="flowersTable">
         <thead>
             <tr>
@@ -16,15 +17,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="flower : ${flowersList}">
+            <tr th:each="flower : ${flowers}">
                 <td th:text="${flower.id}"></td>
                 <td th:text="${flower.flowerName}"></td>
                 <td th:text="${flower.colorName}"></td>
             </tr>
         </tbody>
     </table>
-
+</div>
 
 <script src="/js/index.js"></script>
+
 </body>
 </html>

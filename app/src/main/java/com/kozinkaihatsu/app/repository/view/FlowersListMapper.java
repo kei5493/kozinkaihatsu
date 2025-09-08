@@ -11,12 +11,12 @@ import com.kozinkaihatsu.app.Record.FlowersListRecord;
 @Mapper
 public interface FlowersListMapper {
     /**
-     * 花マスタから全データを取得する
-     * @return 花マスタの全データ
+     * 花一覧ビューから全件取得
+     * @return 花一覧の全データ
      */
     List<FlowersListRecord> selectAllFlowersList();
 
-     /**
+    /**
      * 花一覧ビューから検索条件に応じて取得
      * @param form 検索フォーム（色IDなど）
      * @return 条件に合致する花一覧

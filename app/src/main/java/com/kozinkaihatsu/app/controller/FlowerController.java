@@ -23,7 +23,7 @@ public class FlowerController {
     /**
      * 初期表示（GETリクエスト）
      */
-    @GetMapping("/flower")
+    @GetMapping("/")
     public String flowerSearchGet(@ModelAttribute FlowerSearchForm flowerSearchForm, Model model) {
 
         // ① 検索フォーム用データ（色プルダウン）
@@ -37,7 +37,7 @@ public class FlowerController {
         // ③ 検索フォーム（選択保持用）
         model.addAttribute("flowerSearchForm", flowerSearchForm);
 
-        return "flower/index"; // ThymeleafのHTML名
+        return "index"; // ThymeleafのHTML名
     }
 
     /**
@@ -52,7 +52,7 @@ public class FlowerController {
 
         // ② 入力条件に応じて検索
         List<FlowersListDTO> flowers;
-        if (flowerSearchForm.getColorId() != null) {
+        if (flowerSearchForm.getColor() != null) {
             flowers = flowerService.findFlowerColor(flowerSearchForm);
         } else {
             flowers = flowerService.findAllFlower();
@@ -62,6 +62,6 @@ public class FlowerController {
         // ③ 検索フォーム（選択保持用）
         model.addAttribute("flowerSearchForm", flowerSearchForm);
 
-        return "flower/index"; // 検索結果を同じ画面に返す
+        return "index"; // 検索結果を同じ画面に返す
     }
 }

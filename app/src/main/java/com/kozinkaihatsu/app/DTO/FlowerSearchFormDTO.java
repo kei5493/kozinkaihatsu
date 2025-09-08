@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlowerSearchFormDTO {
-    private Integer colorId;       // 色ID
+    private Integer color;       // 色ID
     private String colorName;  // 色名（画面戻し用）
 }

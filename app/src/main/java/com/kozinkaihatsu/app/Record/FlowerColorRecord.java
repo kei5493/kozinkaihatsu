@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class FlowerColorRecord {
-    private String colorId;
+    private Integer colorId;
     private String colorName;
     
 }

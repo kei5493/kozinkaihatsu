@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FlowersListDTO {
     private Integer id;
+    private Integer flowerNameId;
     private String flowerName;
+    private Integer colorId;
     private String colorName;
 }

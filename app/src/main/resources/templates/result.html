@@ -8,7 +8,7 @@
 </head>
 <body>
 <div th:fragment="result">
-    <table id="flowersTable">
+    <table id="flowersTable" th:if="${flowersListDTO != null and !flowersListDTO.isEmpty()}">
         <thead>
             <tr>
                 <th>ID</th>
@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="flower : ${flowers}">
+            <tr th:each="flower : ${flowersListDTO}">
                 <td th:text="${flower.id}"></td>
                 <td th:text="${flower.flowerName}"></td>
                 <td th:text="${flower.colorName}"></td>

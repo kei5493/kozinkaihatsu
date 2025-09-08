@@ -1,20 +1,43 @@
--- 花一覧表示用ビュー
+-- 花一覧表示用ビュー（CTE で整理版）
 CREATE OR REPLACE VIEW kozinkaihatsu.flower_list AS
+WITH
+  FlowerNameMaster AS (
+    SELECT
+      flower_name_id,
+      flower_name
+    FROM
+      kozinkaihatsu.flower_name
+  ),
+  FlowerColorMaster AS (
+    SELECT
+      color_id,
+      color_name
+    FROM
+      kozinkaihatsu.flower_color
+  ),
+  FlowerBase AS (
+    SELECT
+      f.id,
+      f.flower_name_id,
+      f.color_id
+    FROM
+      kozinkaihatsu.flower f
+  )
 SELECT
-    f.id,
-    f.flower_name_id,
-    fn.flower_name AS flower_name,
-    f.color_id,
-    fc.color_name AS color_name
+    fb.id,
+    fb.flower_name_id,
+    fnm.flower_name,
+    fb.color_id,
+    fcm.color_name
 FROM
-    kozinkaihatsu.flower f
-    LEFT JOIN kozinkaihatsu.flower_name fn
-        ON f.flower_name_id = fn.flower_name_id
-    LEFT JOIN kozinkaihatsu.flower_color fc
-        ON f.color_id = fc.color_id;
+    FlowerBase fb
+    LEFT JOIN FlowerNameMaster fnm
+        ON fb.flower_name_id = fnm.flower_name_id
+    LEFT JOIN FlowerColorMaster fcm
+        ON fb.color_id = fcm.color_id;
 
 -- ビューコメント
-COMMENT ON VIEW kozinkaihatsu.flower_list IS '花マスタ + 花名前マスタ + 色マスタ結合ビュー';
+COMMENT ON VIEW kozinkaihatsu.flower_list IS '花マスタ + 花名前マスタ + 色マスタ結合ビュー (CTE版)';
 
 -- カラムコメント
 COMMENT ON COLUMN kozinkaihatsu.flower_list.id IS '花ID';

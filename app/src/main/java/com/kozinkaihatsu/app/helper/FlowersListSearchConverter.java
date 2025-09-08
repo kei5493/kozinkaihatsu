@@ -4,48 +4,43 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.kozinkaihatsu.app.DTO.FlowersListDTO;
 import com.kozinkaihatsu.app.Entity.FlowersListEntity;
+import com.kozinkaihatsu.app.Form.FlowerSearchForm;
 import com.kozinkaihatsu.app.Record.FlowersListRecord;
 
-
-
 @Mapper(componentModel = "spring")
-public interface FlowersListConverter {
-
+public interface FlowersListSearchConverter {
     /**入れた後の結果
-     * Record=>Entity
-     * @param FlowersListRecord
+     * Form=>Entity
+     * @param FlowerSearchForm
      * @return FlowersListEntity
      */
-    FlowersListEntity toEntity(FlowersListRecord record);
+    FlowersListEntity toEntityFromForm(FlowerSearchForm form);
     //   ↑入れたい先                      ↑入れる元先
 
     /**
-     * List<Record> => List<Entity>
-     * @param List<FlowersListRecord>
+     * List<Form> => List<Entity>
+     * @param List<FlowerSearchForm>
      * @return List<FlowersListEntity>
      */
-    List<FlowersListEntity> toEntityList(List<FlowersListRecord> records);
+    List<FlowersListEntity> toEntityList(List<FlowerSearchForm> forms);
                                      // ↑リストのレコードをEntityに変換している（Mybatisがやっている）
 
 
     /**入れた後の結果
-     * Entity=>DTO
+     * Entity=>Record
      * @param FlowersListEntity
-     * @return FlowersListDTO
+     * @return FlowersListRecord
      */
-    FlowersListDTO toDTO(FlowersListEntity entity);
+    FlowersListRecord toRecord(FlowersListEntity entity);
     //   ↑入れたい先                      ↑入れる元先
 
     /**
-     * List<Entity> => List<DTO>
-     * @param List<FlowersListEntity>
-     * @return List<FlowersListDTO>
+     * List<Entity> => List<Record>
+     * @param List<FlowerEntity>
+     * @return List<FlowersListRecord>
      */
-    List<FlowersListDTO> toDTOList(List<FlowersListEntity> entities);
+    List<FlowersListRecord> toRecordList(List<FlowersListEntity> entities);
     // ↑リストのEntityをDTOに変換している（Mybatisがやっている）
-
-
-
 }
+

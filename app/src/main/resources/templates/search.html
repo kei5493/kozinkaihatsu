@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>花検索</title>
-    <link rel="stylesheet" th:href="@{/kozinkaihatsu/app/src/main/resources/static/style.css}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
-    <div th:fragment="search">
+<div th:fragment="search">
         <header>
             <div class="header-top">検索</div>
         </header>
-<div>
-    <form th:action="@{/flowers}" method="get">
-        <label for="colorSelect">色で絞り込み:</label>
-        <select id="colorSelect" name="colorId">
-            <option value="">-- 全ての色 --</option>
-            <option th:each="color : ${colors}" 
-                    th:value="${color.id}" 
-                    th:text="${color.colorName}"
-                    th:selected="${color.id == colorId}"></option>
-        </select>
-        <button type="submit">検索</button>
-    </form>
+        <form th:action="@{/}" th:object="${flowerSearchForm}" method="post">
+    <!-- 色 -->
+    <div class="list-and-name">
+        <label th:for="*{color}">色</label>
+        <div class="pulldown-wrapper">
+            <select id="color" th:field="*{color}">
+                <option value="">選択してください</option>
+                <option th:each="color : ${colorList}" 
+                        th:value="${color.colorId}" 
+                        th:text="${color.colorName}">
+                </option>
+            </select>
+        </div>
+    </div>
+    <!-- ボタン -->
+    <div>
+        <button type="submit" id="searchBtn" class="btn-submit">検索</button>
+    </div>
+</form>
 </div>
 
-
-    </body>
-    </html>
-    
+</body>
+</html>

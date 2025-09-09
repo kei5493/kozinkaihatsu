@@ -3,7 +3,9 @@ package com.kozinkaihatsu.app.DTO;
 import lombok.*;
 import java.util.List;
 
+import com.kozinkaihatsu.app.Record.FlowerBloomRecord;
 import com.kozinkaihatsu.app.Record.FlowerColorRecord;
+import com.kozinkaihatsu.app.Record.FlowerLanguageRecord;
 import com.kozinkaihatsu.app.Record.FlowerNameRecord;
 
 /**
@@ -20,4 +22,13 @@ public class FlowerSearchFormDTO {
 
         private List<FlowerNameRecord> flowerNameRecords; //花の名称
         private Integer selectedFlowerName; //花名称（選択済み）
+
+        // 花言葉プルダウン
+         private List<FlowerLanguageRecord> flowerLanguageRecords; // 花言葉
+         private Integer selectedFlowerLanguage;                          // 花言葉（選択済み）
+
+        // 開花時期プルダウン（開始月・終了月）
+        private List<FlowerBloomRecord> flowerBloomRecords; // 開花時期
+        private Integer selectedStartMonth;                 // 開花開始月（選択済み）
+        private Integer selectedEndMonth;                   // 開花終了月（選択済み）
 }

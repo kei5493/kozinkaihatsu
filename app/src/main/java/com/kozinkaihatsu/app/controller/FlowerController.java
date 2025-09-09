@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.kozinkaihatsu.app.DTO.FlowerSearchFormDTO;
 import com.kozinkaihatsu.app.DTO.FlowersListDTO;
 import com.kozinkaihatsu.app.Form.FlowerSearchForm;
-import com.kozinkaihatsu.app.Record.FlowerColorRecord;
 import com.kozinkaihatsu.app.service.FlowerService;
 import lombok.AllArgsConstructor;
 
@@ -32,7 +31,7 @@ public class FlowerController {
         model.addAttribute("flowerSearchFormDTO", flowerSearchFormDTO);
 
         // 入力値（form）をキャッシュDTOに反映
-        flowerSearchForm.giveFlowerSearchForm(flowerSearchFormDTO);
+        flowerSearchFormDTO = flowerService.giveSearchFormDTO(flowerSearchForm, flowerSearchFormDTO);
 
         // 検索結果（初期表示は全件）
         List<FlowersListDTO> flowersListDTO = flowerService.flowersListDTO(flowerSearchForm);

@@ -17,7 +17,7 @@
             <div class="list-and-name">
                 <label th:for="*{color}">色</label>
                 <div class="pulldown-wrapper">
-                    <select id="color" th:field="*{color}">
+                    <select id="color" th:field="*{selectedColor}">
                         <option value="">選択してください</option>
                         <option th:each="color : ${flowerSearchFormDTO.flowerColorRecords}"
                                 th:value="${color.colorId}"
@@ -31,11 +31,50 @@
             <div class="list-and-name">
                 <label th:for="*{selectFlowerName}">名称</label>
                 <div class="pulldown-wrapper">
-                    <select id="selectFlowerName" th:field="*{selectFlowerName}">
+                    <select id="selectFlowerName" th:field="*{selectedFlowerName}">
                         <option value="">選択してください</option>
                         <option th:each="flowerName : ${flowerSearchFormDTO.flowerNameRecords}"
                                 th:value="${flowerName.flowerNameId}"
                                 th:text="${flowerName.flowerName}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!-- 花言葉 -->
+            <div class="list-and-name">
+                <label th:for="*{selectFlowerLanguage}">花言葉</label>
+                <div class="pulldown-wrapper">
+                    <select id="selectFlowerLanguage" th:field="*{selectedFlowerLanguage}">
+                        <option value="">選択してください</option>
+                        <option th:each="flowerLanguage : ${flowerSearchFormDTO.flowerLanguageRecords}"
+                                th:value="${flowerLanguage.languageId}"
+                                th:text="${flowerLanguage.language}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!-- 開花開始 -->
+            <div class="list-and-name">
+                <label th:for="*{startMonth}">開花開始月</label>
+                <div class="pulldown-wrapper">
+                    <select id="startMonth" th:field="*{selectedStartMonth}">
+                        <option value="">選択してください</option>
+                        <option th:each="startMonth : ${flowerSearchFormDTO.startMonthRecords}"
+                                th:value="${startMonth.startMonth}"
+                                th:text="${startMonth.startMonth}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!-- 開花終了 -->
+            <div class="list-and-name">
+                <label th:for="*{endMonth}">開花終了月</label>
+                <div class="pulldown-wrapper">
+                    <select id="endMonth" th:field="*{selectedEndMonth}">
+                        <option value="">選択してください</option>
+                        <option th:each="endMonth : ${flowerSearchFormDTO.endMonthRecords}"
+                                th:value="${endMonth.endMonth}"
+                                th:text="${endMonth.endMonth}">
                         </option>
                     </select>
                 </div>

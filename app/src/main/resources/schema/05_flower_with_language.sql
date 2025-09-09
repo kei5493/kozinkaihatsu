@@ -4,11 +4,12 @@ SELECT
     f.id AS flower_id,
     f.flower_name,
     f.color_name,
-    STRING_AGG(fl.language, '、') AS flower_languages
+    STRING_AGG(fl.language, '、') AS flower_languages,
+    STRING_AGG(fl.language_id::text, ',') AS flower_language_ids
 FROM
     kozinkaihatsu.flower f
-    LEFT JOIN kozinkaihatsu.flower_language fl
-        ON f.id = fl.flower_id
+    LEFT JOIN kozinkaihatsu.flower_flower_language ffl ON f.id = ffl.flower_id
+    LEFT JOIN kozinkaihatsu.flower_language fl ON ffl.language_id = fl.language_id
 GROUP BY
     f.id,
     f.flower_name,

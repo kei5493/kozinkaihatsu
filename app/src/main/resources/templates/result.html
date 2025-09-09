@@ -14,6 +14,9 @@
                 <th>ID</th>
                 <th>名前</th>
                 <th>色</th>
+                <th>花言葉</th>
+                <th>開花開始月</th>
+                <th>開花終了月</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +24,9 @@
                 <td th:text="${flower.id}"></td>
                 <td th:text="${flower.flowerName}"></td>
                 <td th:text="${flower.colorName}"></td>
+                <td th:text="${flower.Language}"></td>
+                <td th:text="${flower.startMonth}"></td>
+                <td th:text="${flower.endMonth}"></td>
             </tr>
         </tbody>
     </table>

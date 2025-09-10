@@ -16,16 +16,16 @@ spring:
           - classpath:schema/03_flower_color.sql
           - classpath:schema/06_flower_bloom.sql
           - classpath:schema/04_flower_language.sql
-          - classpath:schema/05_flower_with_language.sql
+          - classpath:schema/05_flower_flower_language.sql
           - classpath:schema/00_flower_list.sql
 
       data-locations:
           - classpath:data/01_flower.sql
           - classpath:data/02_flower_name.sql
           - classpath:data/03_flower_color.sql
-          - classpath:data/04_flower_language.sql
           - classpath:data/06_flower_bloom.sql
-          - classpath:data/05_flower_with_data.sql
+          - classpath:data/04_flower_language.sql
+          - classpath:data/05_flower_flower_language.sql
 
 
 

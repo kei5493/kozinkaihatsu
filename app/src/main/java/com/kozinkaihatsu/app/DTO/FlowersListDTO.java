@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FlowersListDTO {
     private Integer id;
-    private String flowerNameId;
+    private Integer flowerNameId;
     private String flowerName;
-    private String colorId;
+    private Integer colorId;
     private String colorName;
-    private Integer languageId; 
-    private String language;      
-    private Integer startMonth;   
-    private Integer endMonth;    
+    private String languages;
+    private String flowerLanguageIds;
+    private Integer startMonth;
+    private Integer endMonth;  
     
 }

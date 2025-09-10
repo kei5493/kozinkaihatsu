@@ -1,4 +1,5 @@
 -- 花言葉マスタ
+DROP TABLE IF EXISTS kozinkaihatsu.flower_flower_language;
 DROP TABLE IF EXISTS kozinkaihatsu.flower_language;
 CREATE TABLE kozinkaihatsu.flower_language (
     language_id serial PRIMARY KEY,

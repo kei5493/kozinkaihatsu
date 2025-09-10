@@ -14,21 +14,29 @@
 
     <!-- 条件付き検索 -->
     <select id="selectSearchList"
-            parameterType="com.kozinkaihatsu.app.Form.FlowerSearchForm"
-            resultType="com.kozinkaihatsu.app.Record.FlowersListRecord">
-        SELECT
-            *
-        FROM
-            kozinkaihatsu.flower_list
-        <where>
-            <if test="form.color != null and form.color != ''">
-                AND color_id = #{form.color}
-            </if>
-            <if test="form.selectFlowerName != null and form.selectFlowerName != ''">
-                AND flower_name_id = #{form.selectFlowerName}
-            </if>
-        </where>
-    </select>
+        parameterType="com.kozinkaihatsu.app.Form.FlowerSearchForm"
+        resultType="com.kozinkaihatsu.app.Record.FlowersListRecord">
+    SELECT *
+    FROM kozinkaihatsu.flower_list
+    <where>
+        <if test="form.color != null and form.color != ''">
+            color_id = #{form.color}
+        </if>
+        <if test="form.selectName != null and form.selectName != ''">
+            AND flower_name_id = #{form.selectName}
+        </if>
+        <if test="form.languageForm != null and form.languageForm != ''">
+            AND languages LIKE '%' || #{form.languageForm} || '%'
+        </if>
+        <if test="form.startMonth != null and form.startMonth != ''">
+            AND start_month = #{form.startMonth}
+        </if>
+        <if test="form.endMonth != null and form.endMonth != ''">
+            AND end_month = #{form.endMonth}
+        </if>
+    </where>
+    ORDER BY id
+</select>
 
 </mapper>
 

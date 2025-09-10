@@ -1,4 +1,4 @@
-INSERT INTO kozinkaihatsu.flower_blooming_period (flower_name_id, start_month, end_month) VALUES
+INSERT INTO kozinkaihatsu.flower_bloom (flower_name_id, start_month, end_month) VALUES
 -- バラ
 (1, 5, 6),
 -- チューリップ

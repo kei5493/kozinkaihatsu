@@ -19,7 +19,7 @@ public class FlowersListRecord {
     private String colorId;
     private String colorName;
     private Integer languageId;
-    private String language;      
+    private String languages;      
     private Integer startMonth;   
     private Integer endMonth;    
 }

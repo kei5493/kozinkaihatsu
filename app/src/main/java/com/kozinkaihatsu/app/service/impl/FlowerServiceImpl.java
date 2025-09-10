@@ -11,13 +11,11 @@ import com.kozinkaihatsu.app.Entity.FlowersListEntity;
 import com.kozinkaihatsu.app.Form.FlowerSearchForm;
 import com.kozinkaihatsu.app.Record.FlowerBloomRecord;
 import com.kozinkaihatsu.app.Record.FlowerColorRecord;
-import com.kozinkaihatsu.app.Record.FlowerLanguageRecord;
 import com.kozinkaihatsu.app.Record.FlowerNameRecord;
 import com.kozinkaihatsu.app.Record.FlowersListRecord;
 import com.kozinkaihatsu.app.helper.FlowersListConverter;
 import com.kozinkaihatsu.app.repository.common.FlowerBloomMapper;
 import com.kozinkaihatsu.app.repository.common.FlowerColorMapper;
-import com.kozinkaihatsu.app.repository.common.FlowerLanguageMapper;
 import com.kozinkaihatsu.app.repository.common.FlowerNameMapper;
 import com.kozinkaihatsu.app.repository.view.FlowersListMapper;
 import com.kozinkaihatsu.app.service.FlowerService;
@@ -33,7 +31,6 @@ public class FlowerServiceImpl implements FlowerService {
     private final FlowersListConverter flowersListConverter;
     private final FlowerColorMapper flowerColorMapper;
     private final FlowerNameMapper flowerNameMapper;
-    private final FlowerLanguageMapper flowerLanguageMapper;
     private final FlowerBloomMapper flowerBloomMapper;
 
     /**
@@ -54,14 +51,14 @@ public class FlowerServiceImpl implements FlowerService {
     public FlowerSearchFormDTO getSearchFormDTO() {
         List<FlowerColorRecord> colorRecords = flowerColorMapper.selectAllFlowerColor();
         List<FlowerNameRecord> nameRecords = flowerNameMapper.selectAllFlowerName();
-        List<FlowerBloomRecord> bloomRecords = flowerBloomMapper.selectAllFlowerBloom();
-        List<FlowerLanguageRecord> languageRecords = flowerLanguageMapper.selectAllFlowerLanguage();
+        List<Integer> startMonths = flowerBloomMapper.selectStartMonths();
+        List<Integer> endMonths   = flowerBloomMapper.selectEndMonths();
 
         return FlowerSearchFormDTO.builder()
                 .flowerColorRecords(colorRecords)
                 .flowerNameRecords(nameRecords)
-                .flowerBloomRecords(bloomRecords)
-                .flowerLanguageRecords(languageRecords)
+                .startMonths(startMonths) 
+                .endMonths(endMonths)
                 .build();
     }
 
@@ -70,11 +67,11 @@ public class FlowerServiceImpl implements FlowerService {
      */
     @Override
     public FlowerSearchFormDTO giveSearchFormDTO(FlowerSearchForm form, FlowerSearchFormDTO dto) {
-        dto.setSelectedColor(form.getSelectedColor());
-        dto.setSelectedFlowerName(form.getSelectedFlowerName());
-        dto.setSelectedFlowerLanguage(form.getSelectedFlowerLanguage());
-        dto.setSelectedStartMonth(form.getSelectedStartMonth());
-        dto.setSelectedEndMonth(form.getSelectedEndMonth());
+        dto.setSelectedColor(form.getColor());
+        dto.setSelectedFlowerName(form.getSelectName());
+        dto.setLanguageForm(form.getLanguageForm());
+        dto.setSelectedStartMonth(form.getStartMonth());
+        dto.setSelectedEndMonth(form.getEndMonth());
         return dto;
     }
 }

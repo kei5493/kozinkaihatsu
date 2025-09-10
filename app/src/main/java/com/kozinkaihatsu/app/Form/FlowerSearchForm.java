@@ -10,20 +10,20 @@ import lombok.Data;
 @Component
 @Data
 public class FlowerSearchForm {
-    private Integer selectedColor; // 色ID（検索条件）
-    private Integer selectedFlowerName; //花名称id
-    private Integer selectedFlowerLanguage;      
-    private Integer selectedStartMonth;   
-    private Integer selectedEndMonth;
+    private Integer color; // 色ID（検索条件）
+    private Integer selectName; //花名称id
+    private String languageForm;      
+    private Integer startMonth;   
+    private Integer endMonth;
 
 
 
 public void giveFlowerSearchForm(FlowerSearchFormDTO dto) {
-    this.selectedColor = dto.getSelectedColor();
-    this.selectedFlowerName = dto.getSelectedFlowerName();
-    this.selectedFlowerLanguage = dto.getSelectedFlowerLanguage();
-    this.selectedStartMonth = dto.getSelectedStartMonth();
-    this.selectedEndMonth = dto.getSelectedEndMonth();
+    this.color = dto.getSelectedColor();
+    this.selectName = dto.getSelectedFlowerName();
+    this.languageForm = dto.getLanguageForm();
+    this.startMonth = dto.getSelectedStartMonth();
+    this.endMonth = dto.getSelectedEndMonth();
 
 }
 }

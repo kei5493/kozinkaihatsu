@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kozinkaihatsu.app.repository.common.FlowerBloomMapper">
+
+    <!-- 開花開始月 -->
+    <select id="selectStartMonths" resultType="int">
+        SELECT DISTINCT start_month
+        FROM kozinkaihatsu.flower_bloom
+        ORDER BY start_month
+    </select>
+
+    <!-- 開花終了月 -->
+    <select id="selectEndMonths" resultType="int">
+        SELECT DISTINCT end_month
+        FROM kozinkaihatsu.flower_bloom
+        ORDER BY end_month
+    </select>
+
+</mapper>

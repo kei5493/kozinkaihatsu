@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.kozinkaihatsu.app.DTO.FlowerSearchFormDTO;
 import com.kozinkaihatsu.app.DTO.FlowersListDTO;
 import com.kozinkaihatsu.app.Form.FlowerSearchForm;
-import com.kozinkaihatsu.app.Record.FlowerColorRecord;
 import com.kozinkaihatsu.app.service.FlowerService;
 import lombok.AllArgsConstructor;
 
@@ -26,13 +25,15 @@ public class FlowerController {
      */
     @GetMapping("/")
     public String flowerSearchGet(Model model, @ModelAttribute FlowerSearchForm flowerSearchForm) {
+        System.out.println("検索用 花言葉: " + flowerSearchForm.getLanguageForm());
+
 
         // キャッシュされた検索フォーム用データ（色・名称などの選択肢）
         FlowerSearchFormDTO flowerSearchFormDTO = flowerService.getSearchFormDTO();
         model.addAttribute("flowerSearchFormDTO", flowerSearchFormDTO);
 
         // 入力値（form）をキャッシュDTOに反映
-        flowerSearchForm.giveFlowerSearchForm(flowerSearchFormDTO);
+        flowerSearchFormDTO = flowerService.giveSearchFormDTO(flowerSearchForm, flowerSearchFormDTO);
 
         // 検索結果（初期表示は全件）
         List<FlowersListDTO> flowersListDTO = flowerService.flowersListDTO(flowerSearchForm);

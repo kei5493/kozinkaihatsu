@@ -4,7 +4,6 @@ import java.util.List;
 import com.kozinkaihatsu.app.DTO.FlowerSearchFormDTO;
 import com.kozinkaihatsu.app.DTO.FlowersListDTO;
 import com.kozinkaihatsu.app.Form.FlowerSearchForm;
-import com.kozinkaihatsu.app.Record.FlowerColorRecord;
 
 public interface FlowerService {
 

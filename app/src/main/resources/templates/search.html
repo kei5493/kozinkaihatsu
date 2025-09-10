@@ -29,13 +29,48 @@
     
             <!-- 名称 -->
             <div class="list-and-name">
-                <label th:for="*{selectFlowerName}">名称</label>
+                <label th:for="*{selectName}">名称</label>
                 <div class="pulldown-wrapper">
-                    <select id="selectFlowerName" th:field="*{selectFlowerName}">
+                    <select id="selectName" th:field="*{selectName}">
                         <option value="">選択してください</option>
                         <option th:each="flowerName : ${flowerSearchFormDTO.flowerNameRecords}"
                                 th:value="${flowerName.flowerNameId}"
                                 th:text="${flowerName.flowerName}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!-- 花言葉 -->
+            <div class="list-and-name">
+                <label th:for="*{languageForm}">花言葉</label>
+                    <input type="text" id="languageForm"
+                           th:field="*{languageForm}"
+                           placeholder="花言葉を入力してください"/>
+            </div>
+
+            <!-- 開花開始 -->
+            <div class="list-and-name">
+                <label th:for="*{startMonth}">開花開始月</label>
+                <div class="pulldown-wrapper">
+                    <select id="startMonth" th:field="*{startMonth}">
+                        <option value="">選択してください</option>
+                        <option th:each="month : ${flowerSearchFormDTO.startMonths}"
+                                th:value="${month}"
+                                th:text="${month}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- 開花終了 -->
+            <div class="list-and-name">
+                <label th:for="*{endMonth}">開花終了月</label>
+                <div class="pulldown-wrapper">
+                    <select id="endMonth" th:field="*{endMonth}">
+                        <option value="">選択してください</option>
+                        <option th:each="month : ${flowerSearchFormDTO.endMonths}"
+                                th:value="${month}"
+                                th:text="${month}">
                         </option>
                     </select>
                 </div>

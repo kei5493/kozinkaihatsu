@@ -11,8 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FlowersListEntity {
     private Integer id;
-    private Integer flowerNameId;
+    private String flowerNameId;
     private String flowerName;
-    private Integer colorId;
+    private String colorId;
     private String colorName;
+    private Integer languageId;  
+    private String  languages;      
+    private Integer startMonth;   
+    private Integer endMonth;
 }

@@ -22,7 +22,7 @@ public class FlowerSearchFormDTO {
         private Integer selectedFlowerName; //花名称（選択済み）
 
         // 花言葉直接入力
-         private String languageForm;                          // 花言葉（直接）
+         private String languageForm;        // 花言葉（直接）
 
         // 開花開始月
          private List<Integer> startMonths; // 開花開始月候補

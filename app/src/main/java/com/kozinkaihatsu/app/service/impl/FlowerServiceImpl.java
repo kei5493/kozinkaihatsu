@@ -9,7 +9,6 @@ import com.kozinkaihatsu.app.DTO.FlowerSearchFormDTO;
 import com.kozinkaihatsu.app.DTO.FlowersListDTO;
 import com.kozinkaihatsu.app.Entity.FlowersListEntity;
 import com.kozinkaihatsu.app.Form.FlowerSearchForm;
-import com.kozinkaihatsu.app.Record.FlowerBloomRecord;
 import com.kozinkaihatsu.app.Record.FlowerColorRecord;
 import com.kozinkaihatsu.app.Record.FlowerNameRecord;
 import com.kozinkaihatsu.app.Record.FlowersListRecord;

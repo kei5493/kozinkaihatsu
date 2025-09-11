@@ -20,6 +20,7 @@ public class FlowerSearchFormDTO {
 
         private List<FlowerNameRecord> flowerNameRecords; //花の名称
         private Integer selectedFlowerName; //花名称（選択済み）
+        private String flowerNameForm;        // 花言葉（直接）
 
         // 花言葉直接入力
          private String languageForm;        // 花言葉（直接）

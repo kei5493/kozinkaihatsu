@@ -5,10 +5,11 @@ import lombok.Data;
 @Data
 public class FlowerSearchEntity {
 
-    private Integer colorId; //色id
     private Integer flowerNameId; //花名称id
-    private Integer languageId;  
-    private String  languages;    
-    private Integer startMonth;   
-    private Integer endMonth;
+    private String flowerName; //花名称
+    private Integer colorId; //色id
+    private String languages; //花言葉
+    private String flowerLanguageIds; //花言葉id
+    private Integer startMonth; //開花開始
+    private Integer endMonth; //開花終了
 }

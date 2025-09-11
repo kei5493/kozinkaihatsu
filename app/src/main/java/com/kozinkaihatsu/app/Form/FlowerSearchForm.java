@@ -12,6 +12,7 @@ import lombok.Data;
 public class FlowerSearchForm {
     private Integer color; // 色ID（検索条件）
     private Integer selectName; //花名称id
+    private String nameForm;      
     private String languageForm;      
     private Integer startMonth;   
     private Integer endMonth;
@@ -21,6 +22,7 @@ public class FlowerSearchForm {
 public void giveFlowerSearchForm(FlowerSearchFormDTO dto) {
     this.color = dto.getSelectedColor();
     this.selectName = dto.getSelectedFlowerName();
+    this.nameForm = dto.getFlowerNameForm();
     this.languageForm = dto.getLanguageForm();
     this.startMonth = dto.getSelectedStartMonth();
     this.endMonth = dto.getSelectedEndMonth();

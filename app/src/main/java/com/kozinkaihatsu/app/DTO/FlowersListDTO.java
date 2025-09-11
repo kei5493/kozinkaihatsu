@@ -10,14 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FlowersListDTO {
-    private Integer id;
-    private Integer flowerNameId;
-    private String flowerName;
-    private Integer colorId;
-    private String colorName;
-    private String languages;
-    private String flowerLanguageIds;
-    private Integer startMonth;
-    private Integer endMonth;  
+    private Integer id; //花id
+    private Integer flowerNameId; //花名称id
+    private String flowerName; //花名称
+    private Integer colorId; //色id
+    private String colorName; //色名
+    private String languages; //花言葉
+    private String flowerLanguageIds; //花言葉id
+    private Integer startMonth; //開花開始
+    private Integer endMonth; //開花終了
     
 }

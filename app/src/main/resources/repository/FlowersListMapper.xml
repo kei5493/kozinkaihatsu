@@ -25,6 +25,9 @@
         <if test="form.selectName != null and form.selectName != ''">
             AND flower_name_id = #{form.selectName}
         </if>
+        <if test="form.nameForm != null and form.nameForm != ''">
+            AND flower_name ILIKE CONCAT('%', #{form.nameForm}, '%')
+        </if>
         <if test="form.languageForm != null and form.languageForm != ''">
             AND languages ILIKE CONCAT('%', #{form.languageForm}, '%')
         </if>

@@ -11,7 +11,7 @@
         <header>
             <div class="header-top">検索</div>
         </header>
-        <form th:action="@{/}" th:object="${flowerSearchForm}" method="post">
+        <form id="flowerSearchForm" th:action="@{/}" th:object="${flowerSearchForm}" method="post">
 
             <!-- 色 -->
             <div class="list-and-name">
@@ -76,8 +76,9 @@
                 </div>
             </div>
     
-            <!-- 検索ボタン -->
+            <!-- ボタン -->
             <div>
+                <button type="button" id="clearbutton">クリア</button>
                 <button type="submit" id="searchBtn">検索</button>
             </div>
         </form>

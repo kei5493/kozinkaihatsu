@@ -25,9 +25,6 @@ public class FlowerController {
      */
     @GetMapping("/")
     public String flowerSearchGet(Model model, @ModelAttribute FlowerSearchForm flowerSearchForm) {
-        System.out.println("検索用 花言葉: " + flowerSearchForm.getLanguageForm());
-
-
         // キャッシュされた検索フォーム用データ（色・名称などの選択肢）
         FlowerSearchFormDTO flowerSearchFormDTO = flowerService.getSearchFormDTO();
         model.addAttribute("flowerSearchFormDTO", flowerSearchFormDTO);

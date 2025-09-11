@@ -68,6 +68,7 @@ public class FlowerServiceImpl implements FlowerService {
     public FlowerSearchFormDTO giveSearchFormDTO(FlowerSearchForm form, FlowerSearchFormDTO dto) {
         dto.setSelectedColor(form.getColor());
         dto.setSelectedFlowerName(form.getSelectName());
+        dto.setFlowerNameForm(form.getNameForm());
         dto.setLanguageForm(form.getLanguageForm());
         dto.setSelectedStartMonth(form.getStartMonth());
         dto.setSelectedEndMonth(form.getEndMonth());

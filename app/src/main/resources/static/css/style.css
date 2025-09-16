@@ -77,3 +77,83 @@ button {
 button:hover {
     background-color: #ffb6c1;
 }
+
+.flower-img {
+    width: 100px;       /* 横幅固定 */
+    height: 100px;      /* 縦幅固定 */
+    object-fit: cover;  /* 縦横比を維持しつつ中央を切り抜き */
+    cursor: pointer;    /* クリック可能 */
+    border-radius: 8px; /* 角を丸くしたい場合 */
+}
+
+.flowers-gallery {
+    display: flex;
+    flex-wrap: wrap;       /* 複数行に折り返す */
+    gap: 20px;             /* 画像間の隙間 */
+}
+
+.flower-card {
+    display: flex;
+    flex-direction: column; /* 画像の下にボタン */
+    align-items: center;
+    width: 150px;           /* カード幅 */
+}
+
+.flower-thumb {
+    width: 150px;          /* サムネイル横幅 */
+    height: 150px;         /* サムネイル縦幅 */
+    object-fit: cover;     /* 縦横比を維持して切り抜き */
+    border-radius: 8px;
+}
+
+.flower-btn {
+    margin-top: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+
+/* style.css に追加 */
+.modal {
+    display: none; /* 初期は非表示 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* モーダル全体 */
+.modal-content {
+    max-width: 600px;     /* モーダルの最大幅 */
+    margin: 0 auto;       /* 中央に配置 */
+    padding: 20px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* モーダル内画像 */
+#modalImage {
+    display: block;
+    max-width: 100%;      /* モーダル幅に収まる */
+    max-height: 80vh;     /* 画面高さの80%以内に収める */
+    margin: 0 auto;       /* 中央寄せ */
+    object-fit: contain;  /* 縦横比を維持 */
+}
+
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}

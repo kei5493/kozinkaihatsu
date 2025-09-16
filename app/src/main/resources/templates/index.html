@@ -9,8 +9,21 @@
 <body>
     <div th:replace="~{search:: search}"></div>
 
-    <div th:replace="~{result :: result}"></div>
+    <!-- モーダル本体 -->
+<div id="flowerModal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalName"></h2>
+      <img id="modalImage" src="" alt="" />
+      <p id="modalLanguages"></p>
+      <p id="modalBloom"></p>
+  </div>
+</div>
 
+
+    <div th:replace="~{result :: result}"></div>
     <script th:src="@{/js/index.js}"></script>
+    <script src="/js/flowerModal.js"></script> <!-- モーダル用JSを別ファイルに -->
+
 </body>
 </html>

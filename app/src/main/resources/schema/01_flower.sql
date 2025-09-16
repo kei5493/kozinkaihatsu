@@ -8,6 +8,7 @@ CREATE TABLE kozinkaihatsu.flower (
     flower_name  text      NOT NULL,
     color_id   integer   NOT NULL,
     color_name   character varying(20),
+    image_file_name VARCHAR(255),
     PRIMARY KEY (id)
 );
 
@@ -20,3 +21,4 @@ COMMENT ON COLUMN kozinkaihatsu.flower.flower_name_id IS '花の名前ID';
 COMMENT ON COLUMN kozinkaihatsu.flower.flower_name IS '花の名前';
 COMMENT ON COLUMN kozinkaihatsu.flower.color_id IS '色ID';
 COMMENT ON COLUMN kozinkaihatsu.flower.color_name IS '色';
+COMMENT ON COLUMN kozinkaihatsu.flower.image_file_name IS '画像';

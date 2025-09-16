@@ -19,5 +19,6 @@ public class FlowersListDTO {
     private String flowerLanguageIds; //花言葉id
     private Integer startMonth; //開花開始
     private Integer endMonth; //開花終了
+    private String imageFileName; // 画像ファイル名 
     
 }

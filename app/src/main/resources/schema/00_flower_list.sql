@@ -43,7 +43,8 @@ SELECT
     fla.languages,
     fla.flower_language_ids,
     fbl.start_month,
-    fbl.end_month
+    fbl.end_month,
+     f.image_file_name 
 FROM
     kozinkaihatsu.flower f
     LEFT JOIN FlowerNameMaster fnm
@@ -69,3 +70,4 @@ COMMENT ON COLUMN kozinkaihatsu.flower_list.languages IS '花言葉（読点「�
 COMMENT ON COLUMN kozinkaihatsu.flower_list.flower_language_ids IS '花言葉ID（カンマ区切り、色ごとに異なる）';
 COMMENT ON COLUMN kozinkaihatsu.flower_list.start_month IS '開花開始月（品種単位）';
 COMMENT ON COLUMN kozinkaihatsu.flower_list.end_month IS '開花終了月（品種単位）';
+COMMENT ON COLUMN kozinkaihatsu.flower_list.image_file_name IS '画像ファイル名（例: rose.jpg）';

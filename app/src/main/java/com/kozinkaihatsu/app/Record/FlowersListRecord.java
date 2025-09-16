@@ -22,4 +22,5 @@ public class FlowersListRecord {
     private String languages;      
     private Integer startMonth;   
     private Integer endMonth;    
+    private String imageFileName;
 }

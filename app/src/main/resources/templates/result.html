@@ -17,6 +17,7 @@
                 <th>花言葉</th>
                 <th>開花開始月</th>
                 <th>開花終了月</th>
+                <th>画像</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,11 @@
                 <td th:text="${flower.languages}"></td>
                 <td th:text="${flower.startMonth}"></td>
                 <td th:text="${flower.endMonth}"></td>
+                <td>
+                    <img th:if="${flower.imageFileName != null}"
+                         th:src="@{/images/{file}(file=${flower.imageFileName})}"
+                         th:alt="${flower.flowerName}" width="100">
+                </td>
             </tr>
         </tbody>
     </table>

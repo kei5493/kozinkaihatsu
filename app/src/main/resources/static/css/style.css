@@ -1,81 +1,136 @@
-/* style.css */
+/* ヘッダー */
+.header-title {
+    position: relative;
+    width: 100%;
+    height: 180px; /* 高さ調整 */
+    background-image: url('/images/header.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+
+    border-radius: 16px; /* ← 角丸 */
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3); /* ← ピンク系の柔らかい影 */
+    margin-bottom: 20px; /* ← 下に余白 */
+}
+
+/* 半透明の黒オーバーレイ */
+.header-title .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 透明度40% */
+    z-index: 1;
+}
+
+/* 文字をオーバーレイより前面に表示 */
+.header-title h1 {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* 見やすくする影 */
+}
+
+
 
 /* 全体の余白・フォント */
 body {
-    font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+    body {
+        font-family: 'M PLUS Rounded 1c', 'Yu Gothic', 'Hiragino Kaku Gothic Pro', sans-serif;
+        margin: 20px;
+        background-color: #f9f9f9;
+    }
 }
 
-/* ヘッダー */
-header {
-    background-color: #ff69b4;
-    color: #ffffff;
-    padding: 10px 20px;
-    margin-bottom: 20px;
+/* 検索セクション用の見出し */
+.header-title h1,
+.header-top {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    letter-spacing: 1px;
+    color: #fff;
     font-size: 1.2rem;
     font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(255, 105, 180, 0.3);
+    margin-bottom: 8px; /* ← ここを小さく */
+    text-align: center;
 }
 
-/* 検索フォームのラベルとセレクトボックス */
+/* 検索フォーム全体 */
+#flowerSearchForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 30px;
+    align-items: center;
+    background: #fffafc; /* ← ほんのりピンク寄りの背景 */
+    padding: 20px;
+    margin-top: 0;
+    border: 2px solid #ffb6c1; /* ← 薄いピンクの枠線 */
+    border-radius: 12px; /* ← 角丸 */
+    box-shadow: 0 3px 8px rgba(255, 182, 193, 0.3); /* ← ピンクの柔らかい影 */
+}
+
+/* 各項目 */
 .list-and-name {
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 220px;
 }
 
 .list-and-name label {
     font-weight: bold;
-    margin-right: 10px;
-    min-width: 50px;
+    font-size: 0.9rem;
+    color: #ff69b4; /* ← ラベルをピンクでアクセント */
 }
 
-.pulldown-wrapper select {
+/* 入力欄 */
+.pulldown-wrapper select,
+#nameForm,
+#languageForm {
     padding: 6px 10px;
     font-size: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 8px; /* ← 丸める */
+    border: 1px solid #ffb6c1;
     background-color: #ffffff;
+    min-width: 160px;
+    transition: 0.2s;
+}
+.pulldown-wrapper select:focus,
+#nameForm:focus,
+#languageForm:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 6px rgba(255, 105, 180, 0.4); /* ← フォーカス時にキラッと */
 }
 
-/* テーブル全体 */
-#flowersTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* テーブルヘッダー */
-#flowersTable th {
-    background-color: #fff0f5;
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-/* テーブルデータ */
-#flowersTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-
-/* ボタン（もし検索ボタンを追加する場合） */
+/* ボタン */
 button {
-    padding: 6px 12px;
+    padding: 8px 18px;
     font-size: 1rem;
-    border-radius: 4px;
+    border-radius: 20px; /* ← 丸っこく */
     border: none;
     background-color: #ff69b4;
     color: white;
     cursor: pointer;
-    margin-left: 10px;
+    transition: 0.2s;
 }
-
 button:hover {
-    background-color: #ffb6c1;
+    background-color:#f5bfd8; /* ← 少し明るく */
+}
+#clearbutton {
+    background-color: #f0a6ca;
+}
+#clearbutton:hover {
+    background-color: #f5bfd8;
 }
 
 .flower-img {

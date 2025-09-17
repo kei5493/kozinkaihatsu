@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" th:fragment="base(type, titleText, bodyContent)">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titleText}">デフォルトタイトル</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div th:if="${type}=='hana'" class="header-title">
+        <div class="overlay"></div>
+        <h1>花言葉検索</h1>
+    </div>
+
+    <!-- 本文差し込み場所 -->
+    <div th:replace="${bodyContent}"></div>
+</body>
+</html>

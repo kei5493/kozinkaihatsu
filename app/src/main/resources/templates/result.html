@@ -8,6 +8,9 @@
 </head>
 <body>
     <div th:fragment="result">
+        <header>
+            <div class="header-top">花一覧</div>
+        </header>
         <div th:if="${flowersListDTO != null and !flowersListDTO.isEmpty()}" class="flowers-gallery">
             <div class="flower-card" th:each="flower : ${flowersListDTO}">
                 <img th:src="@{/images/{file}(file=${flower.imageFileName})}" 

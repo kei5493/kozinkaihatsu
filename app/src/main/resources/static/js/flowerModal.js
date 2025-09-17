@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             modalName.textContent = btn.dataset.name;
             modalImage.src = btn.dataset.image;
-            modalLanguages.textContent = btn.dataset.languages;
-            modalBloom.textContent = btn.dataset.bloom;
+            modalLanguages.textContent = "花言葉：" +  btn.dataset.languages;
+            modalBloom.textContent = "開花時期：" +  btn.dataset.bloom;
             modal.style.display = 'block';
         });
     });
@@ -19,10 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     });
-
     window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
+        if (e.target === modal) modal.style.display = 'none'; // モーダル外クリックでも閉じる
     });
 });

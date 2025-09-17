@@ -7,20 +7,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <div th:fragment="result" class="flowers-gallery" th:if="${flowersListDTO != null and !flowersListDTO.isEmpty()}">
-        <div class="flower-card" th:each="flower : ${flowersListDTO}">
-            <img th:src="@{/images/{file}(file=${flower.imageFileName})}" 
-                 th:alt="${flower.flowerName}" class="flower-thumb">
-            <button class="flower-btn"
-                    th:data-name="${flower.flowerName}"
-                    th:data-image="@{/images/{file}(file=${flower.imageFileName})}"
-                    th:data-languages="${flower.languages}"
-                    th:data-bloom="${flower.startMonth + '月～' + flower.endMonth + '月'}">
-                <span th:text="${flower.flowerName}"></span>
-            </button>
+    <div th:fragment="result">
+        <div th:if="${flowersListDTO != null and !flowersListDTO.isEmpty()}" class="flowers-gallery">
+            <div class="flower-card" th:each="flower : ${flowersListDTO}">
+                <img th:src="@{/images/{file}(file=${flower.imageFileName})}" 
+                    th:alt="${flower.flowerName}" class="flower-thumb">
+                <button class="flower-btn"
+                th:data-name="${flower.flowerName + '（' + flower.colorName + '）'}"
+                        th:data-image="@{/images/{file}(file=${flower.imageFileName})}"
+                        th:data-languages="${flower.languages}"
+                        th:data-bloom="${flower.startMonth + '月～' + flower.endMonth + '月'}">
+                        <span th:text="${flower.flowerName + '（' + flower.colorName + '）'}"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 検索結果が0件の場合 -->
+        <div th:if="${flowersListDTO == null or #lists.isEmpty(flowersListDTO)}" class="no-result">
+            検索結果がありません
         </div>
     </div>
-    
 
 <script src="/js/index.js"></script>
 

@@ -1,29 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // クリアボタンとフォームの取得
-    const clearButton = document.getElementById("clearbutton");
-    const form = document.getElementById("flowerSearchForm");
-  
-    if (!clearButton || !form) return;
-  
-    clearButton.addEventListener("click", function () {
-      // -----------------------------
-      // 1. テキスト入力を空に
-      // -----------------------------
-      form.querySelectorAll("input[type='text'], input[type='number']").forEach(el => {
-        el.value = "";
-      });
-  
-      // -----------------------------
-      // 2. プルダウンを先頭の placeholder に戻す
-      // placeholder option の value="" が選ばれる
-      // -----------------------------
+  const clearButton = document.getElementById("clearbutton");
+  const form = document.getElementById("flowerSearchForm");
+  const selectName = document.getElementById("selectName"); // プルダウン
+  const nameInput = document.getElementById("nameForm");    // テキスト入力
+  if (!clearButton || !form || !selectName || !nameInput) return;
+  // 初期状態の反映
+  function toggleNameInput() {
+      if (selectName.value) {
+          nameInput.disabled = true;  // プルダウン選択中は入力不可
+          nameInput.value = "";       // 入力内容クリア
+      } else {
+          nameInput.disabled = false; // プルダウン未選択なら入力可能
+      }
+  }
+  toggleNameInput();
+  // プルダウン変更時
+  selectName.addEventListener("change", toggleNameInput);
+  // クリアボタン押下時
+  clearButton.addEventListener("click", function () {
+      // 1. 全テキスト入力を空に
+      form.querySelectorAll("input[type='text'], input[type='number']").forEach(el => el.value = "");
+      // 2. 全プルダウンを placeholder に戻す
       form.querySelectorAll("select").forEach(select => {
-        // 全 option の selected を解除
-        Array.from(select.options).forEach(option => option.selected = false);
-        // placeholder を selected にする
-        const placeholder = select.querySelector('option[value=""]');
-        if (placeholder) placeholder.selected = true;
+          Array.from(select.options).forEach(option => option.selected = false);
+          const placeholder = select.querySelector('option[value=""]');
+          if (placeholder) placeholder.selected = true;
       });
-    });
+      // 3. 名称テキスト入力を有効化
+      nameInput.disabled = false;
   });
+});
+
+
+  document.querySelectorAll('.flower-btn').forEach(btn => {
+    const span = btn.querySelector('span');
+    let fontSize = 14; // 初期サイズ
+    span.style.fontSize = fontSize + 'px';
+
+    while (span.scrollWidth > btn.clientWidth && fontSize > 8) { // 最小8px
+        fontSize -= 1;
+        span.style.fontSize = fontSize + 'px';
+    }
+});
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    if (!scrollBtn) return; // ボタンが存在しない場合は何もしない
+    // ボタンクリックでトップへ
+    scrollBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // スムーズスクロール
+        });
+    });
+});

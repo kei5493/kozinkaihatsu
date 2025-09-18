@@ -32,12 +32,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-  document.querySelectorAll('.flower-btn').forEach(btn => {
+document.querySelectorAll('.flower-btn').forEach(btn => {
     const span = btn.querySelector('span');
     let fontSize = 14; // 初期サイズ
     span.style.fontSize = fontSize + 'px';
 
-    while (span.scrollWidth > btn.clientWidth && fontSize > 8) { // 最小8px
+    const style = getComputedStyle(btn);
+    const padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+    const availableWidth = btn.clientWidth - padding;
+
+    while (span.scrollWidth > availableWidth && fontSize > 10) { // 最小10px
         fontSize -= 1;
         span.style.fontSize = fontSize + 'px';
     }

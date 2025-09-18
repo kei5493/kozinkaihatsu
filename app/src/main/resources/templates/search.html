@@ -12,20 +12,6 @@
             <div class="header-top">検索</div>
         </header>
         <form id="flowerSearchForm" th:action="@{/}" th:object="${flowerSearchForm}" method="post">
-
-            <!-- 色 -->
-            <div class="list-and-name">
-                <label th:for="*{color}">色</label>
-                <div class="pulldown-wrapper">
-                    <select id="color" th:field="*{color}">
-                        <option value="">選択してください</option>
-                        <option th:each="color : ${flowerSearchFormDTO.flowerColorRecords}"
-                                th:value="${color.colorId}"
-                                th:text="${color.colorName}">
-                        </option>
-                    </select>
-                </div>
-            </div>
     
             <!-- 名称 -->
             <div class="list-and-name">
@@ -41,6 +27,21 @@
                     <input id="nameForm" th:field="*{nameForm}" type="text" placeholder="花名を入力してください"/>
                 </div>
             </div>
+
+            <!-- 色 -->
+            <div class="list-and-name">
+                <label th:for="*{color}">色</label>
+                <div class="pulldown-wrapper">
+                    <select id="color" th:field="*{color}">
+                        <option value="">選択してください</option>
+                        <option th:each="color : ${flowerSearchFormDTO.flowerColorRecords}"
+                                th:value="${color.colorId}"
+                                th:text="${color.colorName}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            
             <!-- 花言葉 -->
             <div class="list-and-name">
                 <label th:for="*{languageForm}">花言葉</label>

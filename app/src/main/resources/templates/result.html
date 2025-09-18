@@ -9,7 +9,7 @@
 <body>
     <div th:fragment="result">
         <header>
-            <div class="header-top">花一覧</div>
+            <div class="header-bottom">花一覧</div>
         </header>
         <div th:if="${flowersListDTO != null and !flowersListDTO.isEmpty()}" class="flowers-gallery">
             <div class="flower-card" th:each="flower : ${flowersListDTO}">

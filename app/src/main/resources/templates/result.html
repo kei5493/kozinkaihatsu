@@ -7,36 +7,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<div th:fragment="result">
-    <table id="flowersTable" th:if="${flowersListDTO != null and !flowersListDTO.isEmpty()}">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>名前</th>
-                <th>色</th>
-                <th>花言葉</th>
-                <th>開花開始月</th>
-                <th>開花終了月</th>
-                <th>画像</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="flower : ${flowersListDTO}">
-                <td th:text="${flower.id}"></td>
-                <td th:text="${flower.flowerName}"></td>
-                <td th:text="${flower.colorName}"></td>
-                <td th:text="${flower.languages}"></td>
-                <td th:text="${flower.startMonth}"></td>
-                <td th:text="${flower.endMonth}"></td>
-                <td>
-                    <img th:if="${flower.imageFileName != null}"
-                         th:src="@{/images/{file}(file=${flower.imageFileName})}"
-                         th:alt="${flower.flowerName}" width="100">
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div th:fragment="result">
+        <div th:if="${flowersListDTO != null and !flowersListDTO.isEmpty()}" class="flowers-gallery">
+            <div class="flower-card" th:each="flower : ${flowersListDTO}">
+                <img th:src="@{/images/{file}(file=${flower.imageFileName})}" 
+                    th:alt="${flower.flowerName}" class="flower-thumb">
+                <button class="flower-btn"
+                th:data-name="${flower.flowerName + '（' + flower.colorName + '）'}"
+                        th:data-image="@{/images/{file}(file=${flower.imageFileName})}"
+                        th:data-languages="${flower.languages}"
+                        th:data-bloom="${flower.startMonth + '月～' + flower.endMonth + '月'}">
+                        <span th:text="${flower.flowerName + '（' + flower.colorName + '）'}"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 検索結果が0件の場合 -->
+        <div th:if="${flowersListDTO == null or #lists.isEmpty(flowersListDTO)}" class="no-result">
+            検索結果がありません
+        </div>
+    </div>
 
 <script src="/js/index.js"></script>
 

@@ -99,4 +99,9 @@ INSERT INTO kozinkaihatsu.flower (id, flower_name_id, flower_name, color_id, col
 (97, 41, 'アルストロメリア', 1, '赤', 'alsto_r.jpg'),
 (98, 42, 'シャガ', 3, '青', 'syaga_b.jpg'),
 (99, 42, 'シャガ', 5, '白', 'syaga_w.jpg'),
-(100, 43, 'ハイビスカス', 1, '赤', 'haibi_r.jpg');
+(100, 43, 'ハイビスカス', 1, '赤', 'haibi_r.jpg'),
+(101, 43, 'ハイビスカス', 4, 'ピンク', 'haibi_p.jpg'),
+(102, 44, 'クレマチス', 6, '紫', 'kurematisu_pu.jpg'),
+(103, 44, 'クレマチス', 4, 'ピンク', 'kurematisu_p.jpg'),
+(104, 45, 'プルメリア', 5, '白', 'plmeria_w.jpg'),
+(105, 45, 'プルメリア', 2, '黄', 'plmeria_y.jpg');

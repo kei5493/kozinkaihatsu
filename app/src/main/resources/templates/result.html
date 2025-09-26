@@ -18,7 +18,7 @@
                 <button class="flower-btn"
                 th:data-name="${flower.flowerName + '（' + flower.colorName + '）'}"
                         th:data-image="@{/images/{file}(file=${flower.imageFileName})}"
-                        th:data-languages="${flower.languages}"
+                        th:data-language="${flower.language}"
                         th:data-bloom="${flower.startMonth + '月～' + flower.endMonth + '月'}">
                         <span th:text="${flower.flowerName + '（' + flower.colorName + '）'}"></span>
                 </button>

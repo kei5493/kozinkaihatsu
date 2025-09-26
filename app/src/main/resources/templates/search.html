@@ -41,7 +41,7 @@
                     </select>
                 </div>
             </div>
-            
+
             <!-- 花言葉 -->
             <div class="list-and-name">
                 <label th:for="*{languageForm}">花言葉</label>
@@ -84,6 +84,11 @@
                 <button type="submit" id="searchBtn">検索</button>
             </div>
         </form>
+
+                <!-- 新規登録ボタン -->
+        <div class="form-actions">
+            <a th:href="@{/register}" class="btn btn-register">新規登録</a>
+        </div>
 </div>
 
 </body>

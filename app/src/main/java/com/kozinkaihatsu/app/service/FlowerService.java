@@ -1,9 +1,12 @@
 package com.kozinkaihatsu.app.service;
 import java.util.List;
 
+import com.kozinkaihatsu.app.DTO.FlowerRegisterDTO;
 import com.kozinkaihatsu.app.DTO.FlowerSearchFormDTO;
 import com.kozinkaihatsu.app.DTO.FlowersListDTO;
 import com.kozinkaihatsu.app.Form.FlowerSearchForm;
+import com.kozinkaihatsu.app.Record.FlowerColorRecord;
+import com.kozinkaihatsu.app.Record.FlowerNameRecord;
 
 public interface FlowerService {
 
@@ -27,4 +30,29 @@ public interface FlowerService {
      * @return 更新済みDTO
      */
     FlowerSearchFormDTO giveSearchFormDTO(FlowerSearchForm form, FlowerSearchFormDTO dto);
+
+     /**
+     * 花の新規登録
+     * マスタに新規入力があれば追記し、画像も保存
+     * @param dto FlowerRegisterDTO
+     */
+    void registerFlower(FlowerRegisterDTO dto);
+
+    /**
+     * 登録画面用：花名リスト取得（プルダウン用）
+     * @return FlowerNameRecord のリスト
+     */
+    List<FlowerNameRecord> getAllFlowerNames();
+
+    /**
+     * 登録画面用：色リスト取得（プルダウン用）
+     * @return FlowerColorRecord のリスト
+     */
+    List<FlowerColorRecord> getAllColors();
+
+     /**
+     * 登録後などに花一覧を全件取得
+     * @return 全ての花情報DTOリスト
+     */
+    List<FlowersListDTO> getAllFlowers();
 }

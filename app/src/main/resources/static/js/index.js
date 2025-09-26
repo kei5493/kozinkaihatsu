@@ -49,7 +49,7 @@ document.querySelectorAll('.flower-btn').forEach(btn => {
   
   document.addEventListener("DOMContentLoaded", () => {
     const scrollBtn = document.getElementById("scrollTopBtn");
-    if (!scrollBtn) return; // ボタンが存在しない場合は何もしない
+    if (!scrollBtn) return; 
     // ボタンクリックでトップへ
     scrollBtn.addEventListener("click", () => {
         window.scrollTo({

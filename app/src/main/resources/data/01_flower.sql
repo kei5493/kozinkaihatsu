@@ -72,7 +72,7 @@ INSERT INTO kozinkaihatsu.flower (id, flower_name_id, flower_name, color_id, col
 (70, 28, 'ラナンキュラス', 1, '赤', 'ranunculus_r.jpg'),
 (71, 29, 'ヒマラヤユキノシタ', 4, 'ピンク', 'himaraya_p.jpg'),
 (72, 30, 'シクラメン', 4, 'ピンク', 'cyclamen_p.jpg'),
-(73, 30, 'シクラメン', 1, '赤', 'cyclamen_p.jpg'),
+(73, 30, 'シクラメン', 1, '赤', 'cyclamen_r.jpg'),
 (74, 30, 'シクラメン', 5, '白', 'cyclamen_w.jpg'),
 (75, 31, 'カトレア', 6, '紫', 'cattleya_pu.jpg'),
 (76, 31, 'カトレア', 2, '黄', 'cattleya_y.jpg'),

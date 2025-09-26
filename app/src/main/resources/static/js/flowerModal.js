@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('flowerModal');
     const modalName = document.getElementById('modalName');
     const modalImage = document.getElementById('modalImage');
-    const modalLanguages = document.getElementById('modalLanguages');
+    const modalLanguage = document.getElementById('modalLanguage');
     const modalBloom = document.getElementById('modalBloom');
     const closeBtn = modal.querySelector('.close');
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             modalName.textContent = btn.dataset.name;
             modalImage.src = btn.dataset.image;
-            modalLanguages.textContent = "花言葉：" +  btn.dataset.languages;
+            modalLanguage.textContent = "花言葉：" +  btn.dataset.language;
             modalBloom.textContent = "開花時期：" +  btn.dataset.bloom;
             modal.style.display = 'block';
         });

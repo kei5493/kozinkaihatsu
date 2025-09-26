@@ -25,10 +25,8 @@ public class FlowerSearchFormDTO {
         // 花言葉直接入力
          private String languageForm;        // 花言葉（直接）
 
-        // 開花開始月
          private List<Integer> startMonths; // 開花開始月候補
          private List<Integer> endMonths;   // 開花終了月候補
          private Integer selectedStartMonth;
-        // 開花終了月
          private Integer selectedEndMonth;
 }

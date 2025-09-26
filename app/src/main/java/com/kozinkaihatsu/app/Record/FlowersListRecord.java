@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FlowersListRecord {
     private Integer id;
-    private String flowerNameId;
+    private Integer flowerNameId;
     private String flowerName;
-    private String colorId;
+    private Integer colorId;
     private String colorName;
     private Integer languageId;
-    private String languages;      
+    private String language;      
     private Integer startMonth;   
     private Integer endMonth;    
     private String imageFileName;

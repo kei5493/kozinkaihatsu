@@ -22,4 +22,12 @@ public interface FlowersListMapper {
      * @return 条件に合致する花一覧
      */
     List<FlowersListRecord> selectSearchList(@Param("form") FlowerSearchForm form);
+
+    Integer selectMaxId();
+    /**
+     * 新しい花名をマスタに追加
+     * @param record FlowerNameRecord
+     */
+    void insertFlower(FlowersListRecord record);
+
 }

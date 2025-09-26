@@ -11,6 +11,6 @@ public class WebConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // /images/** のURLを、コンテナ内の /app/images/ にマッピング
         registry.addResourceHandler("/images/**")
-                .addResourceLocations("file:/app/images/");
+        .addResourceLocations("file:/kozinkaihatsu/images/");
     }
 }

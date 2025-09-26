@@ -1,0 +1,92 @@
+.header-top {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #ffc1cc, #b7e4c7);
+    color: #fff;               
+    font-size: 1.3rem;         
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 16px;
+    box-shadow: 0 3px 6px rgba(255, 105, 180, 0.3);
+    max-width: 600px;   
+    margin: 0 auto 8px;
+    text-align: center;
+}
+
+/* === 新規登録フォーム全体 === */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fffafc; /* 柔らかいピンク背景 */
+    border: 2px solid #ffb6c1;
+    border-radius: 16px;
+    box-shadow: 0 3px 8px rgba(255, 182, 193, 0.3); /* ピンク系の影 */
+}
+
+/* ラベル */
+form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #ff85a2;
+}
+
+/* 入力欄共通 */
+form input[type="text"],
+form input[type="file"],
+form select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 4px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ffb6c1;
+    background-color: #ffffff;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+/* フォーカス時 */
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #66cdaa;
+    box-shadow: 0 0 6px rgba(255, 105, 180, 0.4);
+}
+
+/* ボタン */
+form button[type="submit"],
+form a.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    transition: 0.2s;
+    text-align: center;
+}
+
+/* 登録ボタン */
+form button[type="submit"] {
+    background-color: #66cdaa;
+    color: white;
+}
+form button[type="submit"]:hover {
+    background-color: #90ee90;
+}
+
+/* 戻るボタン */
+form a.btn {
+    background-color: #b7e4c7;
+    color: #333;
+    margin-left: 10px;
+    text-decoration: none;
+}
+form a.btn:hover {
+    background-color: #90ee90;
+}

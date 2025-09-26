@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kozinkaihatsu.app.repository.common.FlowerLanguageMapper">
+
+    <!-- 花言葉名から ID を取得 -->
+    <select id="selectIdByLanguage" resultType="int" parameterType="string">
+        SELECT language_id
+        FROM kozinkaihatsu.flower_language
+        WHERE language = #{language}
+    </select>
+
+    <!-- 新規登録 -->
+    <insert id="insert" parameterType="com.kozinkaihatsu.app.Record.FlowerLanguageRecord" useGeneratedKeys="true" keyProperty="languageId">
+        INSERT INTO kozinkaihatsu.flower_language (language)
+        VALUES (#{language})
+    </insert>
+
+    <!-- 全件取得 -->
+    <select id="selectAllLanguage" resultType="com.kozinkaihatsu.app.Record.FlowerLanguageRecord">
+        SELECT language_id, language
+        FROM kozinkaihatsu.flower_language
+        ORDER BY language_id
+    </select>
+</mapper>

@@ -261,3 +261,26 @@ button:hover {
   #scrollTopBtn:hover {
     background-color: #90ee90;
   }
+
+  .form-actions {
+    text-align: right;   /* 右寄せ */
+    margin-top: 15px;    /* フォームとの間に余白 */
+}
+
+/* 新規登録ボタンのデザイン */
+.btn-register {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    padding: 8px 18px;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #66cdaa;  /* 検索ボタンと同じ系統の緑 */
+    color: white;
+    text-decoration: none;  /* aタグの下線を消す */
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-block;  /* ボタンっぽく表示 */
+}
+.btn-register:hover {
+    background-color: #90ee90; /* hover時の色も統一 */
+}

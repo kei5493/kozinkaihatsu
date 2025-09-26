@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kozinkaihatsu.app.repository.common.FlowerLanguageJoinMapper">
+
+   <!-- 花と花言葉の紐付け -->
+    <insert id="insert" parameterType="com.kozinkaihatsu.app.Record.FlowerLanguageJoinRecord">
+        INSERT INTO kozinkaihatsu.flower_flower_language (id, language_id)
+        VALUES (#{id}, #{languageId})
+    </insert>
+</mapper>

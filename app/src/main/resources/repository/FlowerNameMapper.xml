@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kozinkaihatsu.app.repository.common.FlowerNameMapper">
+
+
     <select id="selectAllFlowerName" resultType="com.kozinkaihatsu.app.Record.FlowerNameRecord">
         SELECT
             flower_name_id AS flowerNameId,
@@ -8,4 +10,13 @@
         FROM
             kozinkaihatsu.flower_name;
     </select>
+
+    <select id="selectMaxFlowerNameId" resultType="int">
+        SELECT COALESCE(MAX(flower_name_id), 0) FROM kozinkaihatsu.flower_name
+    </select>
+
+    <insert id="insertFlowerName" parameterType="com.kozinkaihatsu.app.Record.FlowerNameRecord">
+        INSERT INTO kozinkaihatsu.flower_name (flower_name_id, flower_name)
+        VALUES (#{flowerNameId}, #{flowerName})
+    </insert>
 </mapper>

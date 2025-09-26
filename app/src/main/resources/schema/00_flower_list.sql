@@ -18,7 +18,7 @@ WITH
   FlowerLanguageAgg AS (
     SELECT
       ffl.id AS id,
-      STRING_AGG(fl.language, '、' ORDER BY fl.language_id) AS languages,
+      STRING_AGG(fl.language, '、' ORDER BY fl.language_id) AS language,
       STRING_AGG(fl.language_id::text, ',' ORDER BY fl.language_id) AS flower_language_ids
     FROM
       kozinkaihatsu.flower_flower_language ffl
@@ -40,7 +40,7 @@ SELECT
     fnm.flower_name,
     f.color_id,
     fcm.color_name,
-    fla.languages,
+    fla.language,
     fla.flower_language_ids,
     fbl.start_month,
     fbl.end_month,
@@ -66,7 +66,7 @@ COMMENT ON COLUMN kozinkaihatsu.flower_list.flower_name_id IS '花名前ID（品
 COMMENT ON COLUMN kozinkaihatsu.flower_list.flower_name IS '花名前';
 COMMENT ON COLUMN kozinkaihatsu.flower_list.color_id IS '色ID';
 COMMENT ON COLUMN kozinkaihatsu.flower_list.color_name IS '色名';
-COMMENT ON COLUMN kozinkaihatsu.flower_list.languages IS '花言葉（読点「、」区切りで1行表示、色ごとに異なる）';
+COMMENT ON COLUMN kozinkaihatsu.flower_list.language IS '花言葉（読点「、」区切りで1行表示、色ごとに異なる）';
 COMMENT ON COLUMN kozinkaihatsu.flower_list.flower_language_ids IS '花言葉ID（カンマ区切り、色ごとに異なる）';
 COMMENT ON COLUMN kozinkaihatsu.flower_list.start_month IS '開花開始月（品種単位）';
 COMMENT ON COLUMN kozinkaihatsu.flower_list.end_month IS '開花終了月（品種単位）';

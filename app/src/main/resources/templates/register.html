@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>花新規登録</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div th:fragment="register">
+    <header>
+        <div class="header-top">新規登録</div>
+    </header>
+
+    <form th:action="@{/register}" method="post" enctype="multipart/form-data" th:object="${flowerForm}">
+        <!-- 花の名前 -->
+        <label>花の名前（既存）</label>
+        <select th:field="*{flowerNameId}">
+            <option value="">選択してください</option>
+            <option th:each="f : ${flowerNameList}" th:value="${f.flowerNameId}" th:text="${f.flowerName}"></option>
+        </select>
+        <label>または新規入力</label>
+        <input type="text" th:field="*{flowerName}" />
+    
+        <!-- 色 -->
+        <label>色（既存）</label>
+        <select th:field="*{colorId}">
+            <option value="">選択してください</option>
+            <option th:each="c : ${colorList}" th:value="${c.colorId}" th:text="${c.colorName}"></option>
+        </select>
+        <label>または新規入力</label>
+        <input type="text" th:field="*{colorName}" />
+    
+            <!-- 開花開始 -->
+    <label for="startMonth">開花開始月</label>
+    <select id="startMonth" name="startMonth" th:field="*{startMonth}">
+        <option value="">選択してください</option>
+        <option th:each="m : ${monthList}"
+                th:value="${m}"
+                th:text="${m + '月'}"></option>
+    </select>
+
+    <!-- 開花終了 -->
+    <label for="endMonth">開花終了月</label>
+    <select id="endMonth" name="endMonth" th:field="*{endMonth}">
+        <option value="">選択してください</option>
+        <option th:each="m : ${monthList}"
+                th:value="${m}"
+                th:text="${m + '月'}"></option>
+    </select>
+    
+        <!-- 花言葉 -->
+        <label for="language">花言葉（カンマ区切り）</label>
+        <input type="text" id="language" th:field="*{language}" placeholder="例: 愛, 感謝, 純潔">
+    
+        <!-- 画像 -->
+        <label>画像アップロード</label>
+        <input type="file" th:field="*{imageFile}" />
+    
+        <button type="submit">登録</button>
+        <a th:href="@{/}" class="btn">戻る</a>
+    </form>
+</div>
+</body>
+</html>

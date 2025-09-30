@@ -17,4 +17,11 @@ public interface FlowerColorMapper {
      * @return 花色マスタの全データ
      */
     List<FlowerColorRecord> selectAllFlowerColor();
+
+    /**
+     * 花名称からIDを取得する
+     * @param flowerName 花名称
+     * @return flower_name_id（存在しなければnull）
+     */
+    Integer selectIdByName(String colorName);
 }

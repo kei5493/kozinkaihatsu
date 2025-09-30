@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       th:replace="~{header :: base('hana', '花検索', ~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>花検索</title>
+</head>
 <body>
     <!-- 検索フォーム -->
     <div th:replace="~{search :: search}"></div>
 
     <!-- モーダル本体 -->
-<div id="flowerModal" class="modal">
-  <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="modalName"></h2>
-      <img id="modalImage" src="" alt="" />
-      <p id="modalLanguage"></p>
-      <p id="modalBloom"></p>
-  </div>
-</div>
+    <div id="flowerModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 id="modalName"></h2>
+          <img id="modalImage" src="" alt="" />
+          <p id="modalLanguage"></p>
+          <p id="modalBloom"></p>
+      </div>
+    </div>
 
-
+    <!-- 検索結果 -->
     <div th:replace="~{result :: result}"></div>
+
     <script th:src="@{/js/index.js}"></script>
-    <script src="/js/flowerModal.js"></script> <!-- モーダル用JSを別ファイルに -->
-
+    <script src="/js/flowerModal.js"></script>
     <button id="scrollTopBtn" title="先頭に戻る">▲</button>
-
 </body>
 </html>

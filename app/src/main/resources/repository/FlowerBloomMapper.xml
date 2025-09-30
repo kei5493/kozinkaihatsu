@@ -12,6 +12,12 @@
         ORDER BY end_month
     </select>
 
+    <delete id="deleteByFlowerNameId" parameterType="int">
+    DELETE FROM kozinkaihatsu.flower_bloom
+    WHERE flower_name_id = #{flowerNameId}
+    </delete>
+
+
     <insert id="insertFlowerBloom" parameterType="com.kozinkaihatsu.app.Record.FlowerBloomRecord">
     INSERT INTO kozinkaihatsu.flower_bloom (
         flower_name_id,
@@ -22,6 +28,6 @@
         #{startMonth},
         #{endMonth}
     )
-</insert>
+    </insert>
 
 </mapper>

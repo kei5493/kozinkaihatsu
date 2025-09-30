@@ -12,10 +12,16 @@
 
     <select id="selectMaxColorId" resultType="int">
     SELECT COALESCE(MAX(color_id), 0) FROM kozinkaihatsu.flower_color
-</select>
+    </select>
 
-<insert id="insertFlowerColor" parameterType="com.kozinkaihatsu.app.Record.FlowerColorRecord">
-    INSERT INTO kozinkaihatsu.flower_color (color_id, color_name)
-    VALUES (#{colorId}, #{colorName})
-</insert>
+    <select id="selectIdByName" parameterType="string" resultType="int">
+    SELECT color_id
+    FROM kozinkaihatsu.flower_color
+    WHERE color_name = #{colorName}
+    </select>
+
+    <insert id="insertFlowerColor" parameterType="com.kozinkaihatsu.app.Record.FlowerColorRecord">
+        INSERT INTO kozinkaihatsu.flower_color (color_id, color_name)
+        VALUES (#{colorId}, #{colorName})
+    </insert>
 </mapper>

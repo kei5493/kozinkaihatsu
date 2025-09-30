@@ -111,20 +111,28 @@ public class FlowerServiceImpl implements FlowerService {
 
 
         // === 花名処理 ===
-    Integer flowerNameId = dto.getFlowerNameId();
-    if (flowerNameId == null && StringUtils.hasText(dto.getFlowerName())) {
-        int newId = flowerNameMapper.selectMaxFlowerNameId() + 1;
-        FlowerNameRecord newName = FlowerNameRecord.builder()
-                .flowerNameId(newId)
-                .flowerName(dto.getFlowerName())
-                .build();
-        flowerNameMapper.insertFlowerName(newName);
-        flowerNameId = newId;
-    }
+        Integer flowerNameId = dto.getFlowerNameId();
+        if (flowerNameId == null && StringUtils.hasText(dto.getFlowerName())) {
+            // 既存検索
+            flowerNameId = flowerNameMapper.selectIdByName(dto.getFlowerName());
+            if (flowerNameId == null) {
+                // なければ新規追加
+                int newId = flowerNameMapper.selectMaxFlowerNameId() + 1;
+                FlowerNameRecord newName = FlowerNameRecord.builder()
+                        .flowerNameId(newId)
+                        .flowerName(dto.getFlowerName())
+                        .build();
+                flowerNameMapper.insertFlowerName(newName);
+                flowerNameId = newId;
+            }
+        }
+        
 
     // === 色処理 ===
     Integer colorId = dto.getColorId();
-    if (colorId == null && StringUtils.hasText(dto.getColorName())) {
+if (colorId == null && StringUtils.hasText(dto.getColorName())) {
+    colorId = flowerColorMapper.selectIdByName(dto.getColorName());
+    if (colorId == null) {
         int newId = flowerColorMapper.selectMaxColorId() + 1;
         FlowerColorRecord newColor = FlowerColorRecord.builder()
                 .colorId(newId)
@@ -133,6 +141,8 @@ public class FlowerServiceImpl implements FlowerService {
         flowerColorMapper.insertFlowerColor(newColor);
         colorId = newId;
     }
+}
+
   
         // === 画像処理 ===
     String imageFileName = null;
@@ -170,14 +180,17 @@ public class FlowerServiceImpl implements FlowerService {
 
     // === 開花時期処理 ===
     if (dto.getStartMonth() != null && dto.getEndMonth() != null) {
+        // 既存があれば削除 or UPDATE
+        flowerBloomMapper.deleteByFlowerNameId(flowerNameId);
+    
         FlowerBloomRecord bloomRecord = FlowerBloomRecord.builder()
-                .flowerNameId(flowerNameId)   // flower_name_idで紐付け
+                .flowerNameId(flowerNameId)
                 .startMonth(dto.getStartMonth())
                 .endMonth(dto.getEndMonth())
                 .build();
-    
-        flowerBloomMapper.insertFlowerBloom(bloomRecord); // ← インスタンス経由で呼ぶ
+        flowerBloomMapper.insertFlowerBloom(bloomRecord);
     }
+    
     // --- 花言葉処理 ---
     List<String> inputLanguage = Arrays.stream(dto.getLanguage().split(","))
     .map(String::trim)

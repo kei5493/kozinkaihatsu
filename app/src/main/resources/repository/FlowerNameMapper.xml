@@ -15,6 +15,13 @@
         SELECT COALESCE(MAX(flower_name_id), 0) FROM kozinkaihatsu.flower_name
     </select>
 
+    <select id="selectIdByName" parameterType="string" resultType="int">
+    SELECT flower_name_id
+    FROM kozinkaihatsu.flower_name
+    WHERE flower_name = #{flowerName}
+    </select>
+
+
     <insert id="insertFlowerName" parameterType="com.kozinkaihatsu.app.Record.FlowerNameRecord">
         INSERT INTO kozinkaihatsu.flower_name (flower_name_id, flower_name)
         VALUES (#{flowerNameId}, #{flowerName})

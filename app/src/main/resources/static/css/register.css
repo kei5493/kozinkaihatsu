@@ -90,3 +90,11 @@ form a.btn {
 form a.btn:hover {
     background-color: #90ee90;
 }
+
+form input[type="text"]:disabled,
+form input[type="file"]:disabled,
+form select:disabled  {
+    background-color: #eee;   /* 背景を薄いグレーに */
+    color: #666;              /* 文字色も少し薄く */
+    border: 1px solid #ccc;
+  }

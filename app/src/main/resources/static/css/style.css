@@ -284,3 +284,9 @@ button:hover {
 .btn-register:hover {
     background-color: #90ee90; /* hover時の色も統一 */
 }
+
+input:disabled {
+    background-color: #eee;   /* 背景を薄いグレーに */
+    color: #666;              /* 文字色も少し薄く */
+    border: 1px solid #ccc;
+  }

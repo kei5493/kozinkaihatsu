@@ -58,3 +58,33 @@ document.querySelectorAll('.flower-btn').forEach(btn => {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const selectName = document.querySelector("[name='flowerNameId']");
+  const nameInput = document.querySelector("[name='flowerName']");
+  const selectColor = document.querySelector("[name='colorId']");
+  const colorInput = document.querySelector("[name='colorName']");
+
+  if (!selectName || !nameInput || !selectColor || !colorInput) return;
+
+  // 共通の切り替え関数
+  function toggleInput(selectEl, inputEl) {
+    if (selectEl.value && selectEl.value !== "") {
+      // 初期値以外が選択されている場合 → 入力不可
+      inputEl.disabled = true;
+      inputEl.value = "";
+    } else {
+      // 初期値（空）が選択されている場合 → 入力可能
+      inputEl.disabled = false;
+    }
+  }
+
+  // 初期状態の反映
+  toggleInput(selectName, nameInput);
+  toggleInput(selectColor, colorInput);
+
+  // イベント登録
+  selectName.addEventListener("change", () => toggleInput(selectName, nameInput));
+  selectColor.addEventListener("change", () => toggleInput(selectColor, colorInput));
+});

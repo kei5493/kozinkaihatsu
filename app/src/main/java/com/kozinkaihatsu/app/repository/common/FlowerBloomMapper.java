@@ -11,4 +11,6 @@ public interface FlowerBloomMapper {
     List<Integer> selectStartMonths();
     List<Integer> selectEndMonths();
 
+    void deleteByFlowerNameId(Integer flowerNameId);
+
 }
